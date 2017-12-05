@@ -1,5 +1,6 @@
 package com.jaso.base.controller;
 
+import com.jaso.admin.bean.Admin;
 import com.jaso.base.util.VerifyCode;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,26 +41,35 @@ public class MainController {
         return "welcome";
     }
 
-    /**
-     * 获取验证码
-     */
-    private String verifyCodeText;
-    @RequestMapping(value = "/getVerifyCode")
-    public void getVerifyCode(HttpServletRequest request,
-                              HttpServletResponse response) throws IOException {
-        VerifyCode verifyCode = new VerifyCode();
-        BufferedImage image = verifyCode.getImage();
-        verifyCodeText = verifyCode.getText().toLowerCase();
-        verifyCode.output(image, response.getOutputStream());
-    }
-//----------------------
+
+//----------admin------------
     @RequestMapping(value = "admin-role")
-    public String adminrole(){
+    public String adminRole(){
         return "admin/admin-role";
     }
 
+    @RequestMapping(value = "admin-role-add")
+    public String adminRoleAdd(){
+        return "admin/admin-role-add";
+    }
+
     @RequestMapping(value = "admin-list")
-    public String adminlist(){return "admin/admin-list";}
+    public String adminList(){return "admin/admin-list";}
+
+    @RequestMapping(value = "admin-add")
+    public String adminAdd(){
+        return "admin/admin-add";
+    }
+
+    @RequestMapping(value = "menu")
+    public String menu(){
+        return "admin/menu";
+    }
+
+    @RequestMapping(value = "menu-add")
+    public String menuAdd(){
+        return "admin/menu-add";
+    }
 
 
 }

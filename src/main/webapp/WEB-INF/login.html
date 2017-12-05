@@ -45,8 +45,7 @@
       </div>
       <div class="row cl">
         <div class="formControls col-xs-8 col-xs-offset-3">
-          <input class="input-text size-L" type="text" placeholder="验证码"
-                 value="验证码:" style="width:150px;">
+          <input class="input-text size-L" type="text" placeholder="验证码" style="width:150px;">
           <img id="verifyCodeImage" src="/getVerifyCode" alt="验证码"
                title="验证码图片" />
           <a onclick="changeImage()" style="color:white;">看不清，换一张</a>
@@ -71,16 +70,22 @@
 
 <div class="footer">Copyright JASO by SSM-Project</div>
 
+<!--w2ui-->
+<link type="text/css" rel="stylesheet" href="/resources/w2ui-1.5.rc1/w2ui-1.5.rc1.css"/>
 <script type="text/javascript" src="/resources/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/resources/w2ui-1.5.rc1/w2ui-1.5.rc1.js"></script>
+<!--w2ui-->
 
 <script>
   /*点击更新验证码*/
   function changeImage() {
     $("#verifyCodeImage").attr('src', '/getVerifyCode?a=' + Math.random());
   }
-</script>
 
+
+
+</script>
 
 </body>
 </html>
