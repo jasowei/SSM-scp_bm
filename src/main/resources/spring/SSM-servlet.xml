@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xmlns:context="http://www.springframework.org/schema/context"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
 
     <!--1. 加入注解扫描驱动-->
     <mvc:annotation-driven/>
@@ -13,6 +22,8 @@
     <!--3. springmvc第一条 : 将静态资源的处理经由Spring MVC框架交由Web应用服务器处理-->
     <mvc:default-servlet-handler/>
 
+    <bean class="com.jaso.admin.exception.AdminExceptionResolver"/>
+
     <!--4. springmvc第二条 : 配置视图解析规则-->
     <bean id="jspViewResovler"
           class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -21,4 +32,13 @@
         <!--配置视图解析的后缀-->
         <property name="suffix" value=".html"/>
     </bean>
+
+    <!--开启AOP对类代理-->
+    <aop:config proxy-target-class="true"/>
+
+    <!--开启shiro的注解支持-->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
 </beans>

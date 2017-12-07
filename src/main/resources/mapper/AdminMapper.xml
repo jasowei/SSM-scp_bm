@@ -1,13 +1,87 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-        <mapper namespace="com.jaso.admin.mapper.AdminMapper">
+<mapper namespace="com.jaso.admin.mapper.AdminMapper">
+
+    <resultMap id="adminMap" type="com.jaso.admin.bean.Admin">
+        <id column="admin_id" property="admin_id"/>
+        <result column="login_name" property="login_name"/>
+        <result column="password" property="password"/>
+        <result column="real_name" property="real_name"/>
+        <result column="gender" property="gender"/>
+        <result column="tile_url" property="title_url"/>
+        <result column="telephone" property="telephone"/>
+        <result column="email" property="email"/>
+        <result column="address" property="address"/>
+    </resultMap>
+
+    <resultMap id="adminMapEx" type="com.jaso.admin.bean.Admin" extends="adminMap">
+        <collection property="roles"
+                    ofType="com.jaso.admin.bean.Role">
+            <id column="role_id" property="role_id"/>
+            <result column="role_name" property="role_name"/>
+
+            <collection property="permits"
+                        ofType="com.jaso.admin.bean.Permit">
+                <id column="permit_id" property="permit_id"/>
+                <result column="permit_name" property="permit_name"/>
+            </collection>
+        </collection>
+    </resultMap>
+
+    <sql id="adminSql">
+        admin_info.admin_id,
+        admin_info.login_name,
+        admin_info.password,
+        admin_info.real_name,
+        admin_info.gender,
+        admin_info.title_url,
+        admin_info.telephone,
+        admin_info.email,
+        admin_info.address
+    </sql>
+    <sql id="roleSql">
+        role_info.role_id,
+        role_info.role_name
+    </sql>
+    <sql id="permitSql">
+        permit_info.permit_id,
+        permit_info.permit_name
+    </sql>
 
     <select id="select_adminById"
             parameterType="int"
             resultType="com.jaso.admin.bean.Admin">
         SELECT * FROM admin_info WHERE admin_id = #{value}
 
+    </select>
+
+    <!--根据登录名查询-->
+    <select id="select_adminByLoginName"
+            parameterType="java.lang.String"
+            resultType="com.jaso.admin.bean.Admin">
+        SELECT * FROM admin_info WHERE login_name = #{value}
+    </select>
+
+    <!--登录查询-->
+    <select id="select_adminByLoginNameAndPwd"
+            parameterType="com.jaso.admin.bean.Admin"
+            resultMap="adminMapEx">
+        SELECT
+
+        <include refid="adminSql"/>,
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM admin_info,admin_role, role_info, role_permit, permit_info
+
+        WHERE admin_info.login_name = #{login_name}
+        AND admin_info.password = #{password}
+
+        AND admin_info.admin_id = admin_role.admin_id
+        and admin_role.role_id = role_info.role_id
+        and role_info.role_id = role_permit.role_id
+        AND role_permit.permit_id = permit_info.permit_id;
     </select>
 
 </mapper>
