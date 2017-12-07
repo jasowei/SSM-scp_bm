@@ -1,5 +1,7 @@
 package com.jaso.admin.bean;
 
+import java.util.List;
+
 /**
  * Created by dllo on 17/12/5.
  */
@@ -14,6 +16,7 @@ public class Admin {
     private String telephone;//电话
     private String email;//email
     private String address;//地址
+    private List<Role> roles;//角色
 
     public Admin(String login_name, String password, String real_name, String gender, String title_url, String telephone, String email, String address) {
         this.login_name = login_name;
@@ -30,8 +33,13 @@ public class Admin {
     
     }
 
+    public Admin(String login_name, String password) {
+        this.login_name = login_name;
+        this.password = password;
+    }
+
     public Admin(int admin_id, String login_name, String password, String real_name, String gender, String title_url, String telephone, String email, String address) {
-    
+
         this.admin_id = admin_id;
         this.login_name = login_name;
         this.password = password;
@@ -41,6 +49,19 @@ public class Admin {
         this.telephone = telephone;
         this.email = email;
         this.address = address;
+    }
+
+    public Admin(int admin_id, String login_name, String password, String real_name, String gender, String title_url, String telephone, String email, String address, List<Role> roles) {
+        this.admin_id = admin_id;
+        this.login_name = login_name;
+        this.password = password;
+        this.real_name = real_name;
+        this.gender = gender;
+        this.title_url = title_url;
+        this.telephone = telephone;
+        this.email = email;
+        this.address = address;
+        this.roles = roles;
     }
 
     @Override
@@ -55,7 +76,16 @@ public class Admin {
                 ", telephone='" + telephone + '\'' +
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
+                ", roles=" + roles +
                 '}';
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
     }
 
     public int getAdmin_id() {

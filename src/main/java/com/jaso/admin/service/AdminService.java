@@ -9,4 +9,8 @@ public interface AdminService {
 
 
     Admin select_adminById(int admin_id);
+
+    Admin select_adminByLoginName(String login_name);
+
+    Admin select_adminByLoginNameAndPwd(Admin admin);
 }

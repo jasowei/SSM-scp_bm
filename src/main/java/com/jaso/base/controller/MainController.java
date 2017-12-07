@@ -2,6 +2,7 @@ package com.jaso.base.controller;
 
 import com.jaso.admin.bean.Admin;
 import com.jaso.base.util.VerifyCode;
+import org.apache.shiro.SecurityUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -20,7 +21,7 @@ public class MainController {
     /**
      * 登录页
      */
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "/login")
     public String login(){
         return "login";
     }
@@ -28,7 +29,7 @@ public class MainController {
     /**
      * 主页
      */
-    @RequestMapping(value = "index")
+    @RequestMapping(value = "/index")
     public String index(){
         return "index";
     }
