@@ -1,134 +1,351 @@
 ﻿<!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<!--[if lt IE 9]>
-<script type="text/javascript" src="/resources/lib/html5shiv.js"></script>
-<script type="text/javascript" src="/resources/lib/respond.min.js"></script>
-<![endif]-->
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="/resources/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/style.css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="/resources/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-<title>菜单管理</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/resources/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/resources/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/lib/Hui-iconfont/1.0.8/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/skin/default/skin.css" id="skin"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/style.css"/>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/resources/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>菜单管理</title>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="/resources/bs/css/bootstrap.css">
+    <script src="/resources/jquery-3.2.1.min.js"></script>
+    <script src="/resources/bs/js/bootstrap.js"></script>
+
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页 <span class="c-gray en">&gt;</span>
-	管理员管理 <span class="c-gray en">&gt;</span> 菜单管理
-	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);"
-	   title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a></nav>
+    管理员管理 <span class="c-gray en">&gt;</span> 菜单管理
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+       href="menu" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a></nav>
 <div class="page-container">
 
-	<div class="text-c">
-		<form class="Huiform" method="post" action="" target="_self">
-			<input type="text" class="input-text" style="width:250px"  id="" name="">
-			<button type="submit" class="btn btn-success" id="" name="">
-				<i class="Hui-iconfont">&#xe665;</i> 搜索</button>
-		</form>
-	</div>
-	<div class="cl pd-5 bg-1 bk-gray mt-20">
+    <div class="text-c">
+        <form class="Huiform" method="post" action="" target="_self">
+            <input type="text" class="input-text" style="width:250px" name="">
+            <button type="submit" class="btn btn-success" name="">
+                <i class="Hui-iconfont">&#xe665;</i> 搜索
+            </button>
+        </form>
+    </div>
+    <div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l">
-		<a href="javascript:;" onclick="datadel()" class="btn btn-danger radius">
-			<i class="Hui-iconfont">&#xe6e2;</i> 批量删除</a>
-			<a href="menu-add" onclick="menu_add('添加菜单','menu-add.html','800','500')"
-			   class="btn btn-primary radius"><i class="Hui-iconfont">&#xe600;</i> 添加菜单</a>
+		<a id="rco" href="javascript:;" onclick="recover()" class="btn btn-danger radius">
+			<i class="Hui-iconfont"></i> 一键恢复
+        </a>
+            <a href="menu-add" onclick="menu_add('添加菜单','menu-add.html')" class="btn btn-primary radius">
+                <i class="Hui-iconfont">&#xe600;</i> 添加菜单
+            </a>
 		</span>
-	</div>
-	<table class="table table-border table-bordered table-bg">
-		<thead>
+    </div>
+    <table class="table table-border table-bordered table-bg">
+        <thead>
 
-			<tr class="text-c">
-				<th width="25"><input type="checkbox" name="" value=""></th>
-				<th>名称</th>
-				<th>权限名称</th>
-				<th>上级菜单</th>
-				<th>类型</th>
-				<th>链接</th>
-				<th>创建时间</th>
-				<th>创建人</th>
-				<th>排序</th>
-				<th>状态</th>
-				<th>操作</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr class="text-c">
-				<td><input type="checkbox" value="1" name=""></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td></td>
-				<td>
+        <tr class="text-c">
+            <th>序号</th>
+            <th>名称</th>
+            <th>上级菜单</th>
+            <th>类型(级别)</th>
+            <th>链接</th>
+            <th>更新时间</th>
+            <th>创建者</th>
+            <th>显示(是/否)</th>
+            <th>操作</th>
+        </tr>
+        </thead>
+        <tbody id="tab">
 
-					<a title="编辑" href="javascript:;"
-					   onclick="menu_edit('菜单编辑','menu-add.html','1','800','500')"
-					   class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6df;</i></a>
+        </tbody>
+    </table>
 
-					<a title="删除" href="javascript:;" onclick="menu_del(this,'1')"
-					   class="ml-5" style="text-decoration:none"><i class="Hui-iconfont">&#xe6e2;</i></a>
-				</td>
-			</tr>
-		</tbody>
-	</table>
+
 </div>
+<div class="text-c">
+    <nav aria-label="Page navigation">
+        <ul class="pager" id="page">
+
+        </ul>
+    </nav>
+</div>
+
+
+<!--w2ui-->
+<link type="text/css" rel="stylesheet" href="/resources/w2ui-1.5.rc1/w2ui-1.5.rc1.css"/>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/resources/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/resources/w2ui-1.5.rc1/w2ui-1.5.rc1.js"></script>
+<!--w2ui-->
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/resources/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
-/*
-	参数解释：
-	title	标题
-	url		请求的url
-	id		需要操作的数据id
-	w		弹出层宽度（缺省调默认值）
-	h		弹出层高度（缺省调默认值）
-*/
-/*添加*/
-function menu_add(title,url,w,h){
-	layer_show(title,url,w,h);
-}
-/*编辑*/
-function menu_edit(title,url,id,w,h){
-	layer_show(title,url,w,h);
-}
 
-/*删除*/
-function menu_del(obj,id){
-	layer.confirm('确认要删除吗？',function(index){
-		$.ajax({
-			type: 'POST',
-			url: '',
-			dataType: 'json',
-			success: function(data){
-				$(obj).parents("tr").remove();
-				layer.msg('已删除!',{icon:1,time:1000});
-			},
-			error:function(data) {
-				console.log(data.msg);
-			},
-		});		
-	});
-}
+    //当前第一页,显示5条数据
+    showMenu(1, 5);
+
+    //普通查询//
+    function showMenu(pageNum, pageSize) {
+        $.ajax({
+            url: "allMenu",
+            type: "post",
+            data: {
+                "pageNum": pageNum,
+                "pageSize": pageSize
+            },
+            success: function (result) {
+                if (result.size == 0) {
+                    layer.msg('不瞒你说,这里空空如也!', {icon: 0, time: 5000});
+                }
+                var list = result.list;
+                $("#tab").html("");
+                $("#page").html("");
+                showPage(result);
+                $.each(list, function (i, menu) {
+                    addNewTR(menu);
+                });
+
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+        })
+    }
+
+    //查询显示所有菜单//
+    function addNewTR(menu) {
+        var td2 = $("<td></td>").html("<p>" + menu.menu_name + "</p>");
+        var td3 = $("<td></td>");
+        //查父菜单
+        $.ajax({
+            url: "select_menuById",
+            type: "post",
+            data: {
+                id: menu.parent_id
+            },
+            success: function (result) {
+                if (result.menu_name != null) {
+                    td3.html("<p>" + result.menu_name + "</p>");
+                }
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+        });
+
+        var td4 = $("<td></td>").html("<p>" + menu.type + "</p>");
+        var td5 = $("<td></td>").html("<p>" + menu.url + "</p>");
+        var td6 = $("<td></td>").html("<p>" + new Date(parseInt(menu.create_time)).toLocaleString() + "</p>");
+        var td7 = $("<td></td>")
+        //查创建者
+        $.ajax({
+            url: "",
+        type: "post",
+            data: {
+                id: menu.create_id
+            },
+            success: function (result) {
+                if (result.menu_name != null) {
+                    td7.html("<p>"+result.real_name+"</p>");
+                }
+            }
+        });
+
+        var td8 = $("<td></td>").html("<p>" + menu.sort + "</p>");
+        var td9 = $("<td></td>").html("<p>" + menu.status + "</p>");
+        var td10 = $("<td></td>");
+        $("<a title='编辑' href='#'  onclick='menu_edit(" + menu.menu_id + ")' class='ml-5' style='text-decoration:none'> <i class='Hui-iconfont'>&#xe6df;</i></a>").appendTo(td10);
+        $("<a onclick='menu_del(this, " + menu.menu_id + ")' title='删除' href='#' class='ml-5' style='text-decoration:none'><i class='Hui-iconfont'>&nbsp;&nbsp;&#xe6e2;</i></a>").appendTo(td10);
+
+        var td11 = $("<td></td>");
+        $("<a title='恢复' href='#'  onclick='menu_recover(" + menu.menu_id + ")' class='ml-5' style='text-decoration:none'> " + "<i class='Hui-iconfont'>&#xe68f;</i></a>").appendTo(td11);
+
+        var append = $("<tr></tr>").append(td8).append(td2).append(td3).append(td4).append(td5).append(td6).append(td7).append(td9);
+        //移除菜单
+        if (menu.status == 2) {
+            append.append(td11)
+        } else {
+            append.append(td10);
+        }
+        $("#tab").append(append)
+    }
+
+    //分页//
+    function showPage(result) {
+        // 上一页
+        var beforeLiFalse = $("<li class='previous disabled'><a href='#'><span aria-hidden='true'>&larr;</span> 上一页</a>");
+
+        var beforeLiTrue = $("<li class='previous'><a  href='#' onclick='showMenu(" + (result.pageNum - 1) + ",5)'><span aria-hidden='true'>&larr;</span> 上一页</a></li>");
+
+        var beforePage = result.hasPreviousPage ? beforeLiTrue : beforeLiFalse;
+
+        $("#page").append(beforePage);
+
+        // 页码显示
+        var pages = result.pages;
+        for (var i = 1; i <= pages; i++) {
+            var pageTrue = $("<li class='active'> <span>" + i + "<span class='sr-only'>(current)</span></span></li>");
+            var pageFalse = $("<li><a href='#' onclick='showMenu(" + i + ",5)'>" + i + "</a></li>");
+            var somePage = result.pageNum == i ? pageTrue : pageFalse;
+            $("#page").append(somePage);
+        }
+
+        //下一页
+        var afterLiFalse = $("<li class='next disabled'><a href='#'>下一页 <span aria-hidden='true'>&rarr; </span></a></li>");
+
+        var afterLiTrue = $("<li class='next'><a href='#' onclick='showMenu(" + (result.pageNum + 1) + ",5)'>下一页 <span aria-hidden='true'>&rarr; </span></a></li>");
+
+        var afterPage = result.hasNextPage ? afterLiTrue : afterLiFalse;
+
+        $("#page").append(afterPage);
+    }
+
+    /*添加*/
+    function menu_add(title, url) {
+        layer_show(title, url, 800, 500);
+    }
+
+    /*编辑*/
+    function menu_edit(id) {
+        layer_show("编辑", "menu-edi/"+id, 800, 500);
+
+    }
+
+    /*删除*/
+    function menu_del(obj, id) {
+        popup(obj, id)
+    }
+
+    //w2ui提示框
+    function popup(obj, id) {
+        w2popup.open({
+            width: 300,
+            height: 200,
+            title: '{ 身份验证 }',
+            body: '<div class="w2ui-centered">请输入密码:' +
+            '<input id="pwd" type="password" class="width200"/></div>',
+            buttons: '<button class="w2ui-btn" onclick="password(' + id + ')">残忍移除</button>' +
+            '<button class="w2ui-btn" onclick="w2popup.close();">再想想~</button>',
+            showMax: true
+        });
+    }
+
+    //验证身份(密码), 执行操作
+    function password(id) {
+        if ($("#pwd").val() == 123) {
+
+            $.ajax({
+                type: 'POST',
+                url: 'delMenu',
+                dataType: 'json',
+                data: {
+                    id: id
+                },
+                success: function (data) {
+                    if (data == 1) {
+                        w2popup.close();
+                        layer.msg('移除成功!', {icon: 1, time: 2000});
+                        showMenu(1, 5);
+                    } else {
+                        w2popup.close();
+                        layer.msg('此菜单拥有子菜单,不可删除!', {icon: 2, time: 3000});
+                    }
+                },
+                error: function (data) {
+                    console.log("移除失败!");
+                },
+            });
+
+        } else {
+            w2alert("× 密码错误!");
+        }
+
+    }
+
+
+    /*一键恢复*/
+    function recover() {
+        $("#rco").html("<i class='Hui-iconfont'>&#xe68f;</i>");
+        showDelMenu(1, 5)
+
+    }
+
+    function menu_recover(id) {
+        showConfirm(id)
+    }
+
+    function showConfirm(id) {
+        w2confirm('您是要恢复此菜单并重新显示吗?')
+                .yes(function () {
+                    console.log('Do it !');
+                    $.ajax({
+                        type: 'POST',
+                        url: 'rcoMenu',
+                        dataType: 'json',
+                        data: {
+                            id: id
+                        },
+                        success: function (data) {
+                            if (data == 1) {
+                                layer.msg('成功恢复菜单!', {icon: 1, time: 3000});
+                                showDelMenu(1, 5)
+                            }
+                        },
+                        error: function () {
+                            console.log("恢复失败!");
+                        },
+                    });
+                })
+                .no(function () {
+                    console.log('再想想~');
+                });
+    }
+
+    function showDelMenu(pageNum, pageSize) {
+        $.ajax({
+            url: "allDelMenu",
+            type: "post",
+            data: {
+                "pageNum": pageNum,
+                "pageSize": pageSize
+            },
+            success: function (result) {
+                var list = result.list;
+                $("#tab").html("");
+                $("#page").html("");
+                if (result.size == 0) {
+                    layer.msg('不瞒你说,这里空空如也!', {icon: 0, time: 5000});
+                } else {
+//                    layer.msg('为您显示所有已移除的菜单!', {icon: 1, time: 3000});
+                    showPage(result);
+                    $.each(list, function (i, menu) {
+                        addNewTR(menu);
+                    });
+                }
+
+
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+        })
+    }
 </script>
 </body>
 </html>

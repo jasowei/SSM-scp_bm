@@ -24,12 +24,31 @@
           id="sessionFactory">
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="classpath*:mapper/*.xml"/>
+
+        <!--分页(mybatis)-->
+
+        <property name="plugins" >
+            <array>
+                <bean class="com.github.pagehelper.PageHelper">
+                    <property name="properties">
+                        <value>
+                            dialect=mysql
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+
+
     </bean>
+
+
+
 
     <!--7. 配置mybatis中的mapper接口自动扫描-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--mapper接口代理对象所在的包-->
-        <property name="basePackage" value="com.jaso.admin.mapper"/>
+        <property name="basePackage" value="com.jaso.admin.mapper,com.jaso.base.mapper"/>
         <!--定义sessionFactory, 引用上面配置的工厂对象-->
         <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
     </bean>

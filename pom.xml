@@ -14,10 +14,24 @@
       <version>4.12</version>
     </dependency>
 
+    <!--分页-->
+    <dependency>
+      <groupId>com.github.pagehelper</groupId>
+      <artifactId>pagehelper</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+
     <dependency>
       <groupId>javax.servlet</groupId>
       <artifactId>javax.servlet-api</artifactId>
       <version>3.1.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.webjars.bower</groupId>
+      <artifactId>jquery</artifactId>
+      <version>3.2.1</version>
     </dependency>
 
     <!--json-->
@@ -64,6 +78,7 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.apache.shiro/shiro-all -->
+
     <dependency>
       <groupId>org.apache.shiro</groupId>
       <artifactId>shiro-all</artifactId>

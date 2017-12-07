@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+        <mapper namespace="com.jaso.base.mapper.MenuMapper">
+
+    <!--查询所有menu-->
+    <select id="findAll" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE status = 1
+    </select>
+
+    <!--根据id查菜单-->
+    <select id="select_menuById" parameterType="int" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE menu_id = #{value}
+    </select>
+
+    <!--查询所有父级菜单-->
+    <select id="findAllParentMenu" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE parent_id = 0;
+    </select>
+
+    <!--查询所有菜单个数-->
+    <select id="menuSize" resultType="int">
+        SELECT COUNT(*) FROM menu_info WHERE status = 1;
+    </select>
+
+    <!--添加菜单-->
+    <insert id="addMenu" parameterType="com.jaso.base.bean.Menu">
+
+        INSERT into menu_info (parent_id,icon,menu_name,urlkey,url, status, type, sort, level,create_time,create_id) VALUES
+        (#{parent_id},#{icon},#{menu_name},#{urlkey},#{url}, #{status}, #{type}, #{sort}, #{level},#{create_time},#{create_id})
+    </insert>
+
+    <!--菜单名去重-->
+    <select id="select_menuByName" resultType="com.jaso.base.bean.Menu"
+            parameterType="java.lang.String">
+        SELECT * FROM menu_info WHERE menu_name = #{value}
+    </select>
+
+    <!--判断是否有子菜单-->
+    <select id="hasSubMenu" parameterType="int" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE parent_id = #{value} and status = 1;
+    </select>
+
+    <!--删除菜单-->
+    <update id="delMenu" parameterType="int" >
+        UPDATE menu_info SET status = 2 WHERE menu_id = #{value}
+    </update>
+
+    <!--所有移除菜单-->
+    <select id="findAllDel" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE status = 2
+    </select>
+
+    <!--恢复菜单-->
+    <update id="rcoMenu" parameterType="int" >
+        UPDATE menu_info SET status = 1 WHERE menu_id = #{value}
+    </update>
+
+    <!--编辑菜单-->
+    <update id="ediMenu" parameterType="com.jaso.base.bean.Menu">
+        UPDATE menu_info SET
+        parent_id=#{parent_id},icon=#{icon},menu_name=#{menu_name},urlkey=#{urlkey},
+        url=#{url}, status=#{status}, type=#{type}, sort=#{sort}, level=#{level},
+        create_time=#{create_time},create_id=#{create_id}
+        WHERE menu_id = #{menu_id}
+    </update>
+
+</mapper>

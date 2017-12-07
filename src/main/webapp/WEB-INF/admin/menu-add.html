@@ -26,17 +26,14 @@
 </head>
 <body>
 <article class="page-container">
+
+
     <form class="form form-horizontal" id="form-admin-add">
+        <input type="hidden" id="menu_id" name="menu_id" value="">
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="name" name="name">
-            </div>
-        </div>
-        <div class="row cl">
-            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>权限名称：</label>
-            <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="prmtName" name="prmtName">
+                <input type="text" class="input-text" value="" placeholder="" id="menu_name" name="menu_name">
             </div>
         </div>
         <div class="row cl">
@@ -49,19 +46,16 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3">上级菜单：</label>
             <div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
-			<select class="select" name="lastPrmt" size="1">
-				<option value="0">权限管理</option>
-				<option value="1">业主管理</option>
-				<option value="2">费用管理</option>
-				<option value="3">物业服务</option>
-				<option value="4">系统设置</option>
+			<select class="select" id="parent_id" name="parent_id" size="1">
+
 			</select>
 			</span></div>
         </div>
 
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                <input class="btn btn-primary radius" type="submit"
+                       value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
             </div>
         </div>
     </form>
@@ -71,13 +65,55 @@
 <script type="text/javascript" src="/resources/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+
 <script type="text/javascript">
+    //查询所有父级菜单
+    findAllParentMenu();
+    function findAllParentMenu() {
+        $.ajax({
+            url: "findAllParentMenu",
+            type: "post",
+            success: function (result) {
+                var _html = "<option value='0'> ~~~ </option>";
+                $.each(result,function (i,n) {
+                    _html += '<option value=' + n.menu_id + ' >' + n.menu_name + '</option>';
+
+                });
+                $("#parent_id").append(_html);
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+        });
+    }
+
+    show();
+    function show() {
+        $.ajax({
+            url: "backfill",
+            type: "post",
+            success: function (result) {
+
+                if (result != null){
+                    $("#menu_name").attr(result.menu_name);
+                    $("#url").attr(result.url);
+                    $("#menu_id").attr(result.menu_id);
+                }
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+        });
+    }
+
+
+
+
     $(function () {
         $('.skin-minimal input').iCheck({
             checkboxClass: 'icheckbox-blue',
@@ -87,33 +123,35 @@
 
         $("#form-admin-add").validate({
             rules: {
-                name: {
+                menu_name: {
                     required: true,
                     minlength: 4,
                     maxlength: 16
                 },
-                prmtName: {
-                    required: true,
-                },
                 url: {
-                    required: true,
+                    required: true
                 },
-                lastPrmt: {
-                    required: true,
-                },
+                parent_id: {
+                    required: true
+                }
             },
             onkeyup: false,
             focusCleanup: true,
             success: "valid",
             submitHandler: function (form) {
+
                 $(form).ajaxSubmit({
                     type: 'post',
-                    url: "xxxxxxx",
-                    success: function (data) {
-                        layer.msg('添加成功!', {icon: 1, time: 1000});
+                    url: "addMenu" ,
+                    success: function(data){
+                        if (data == 1) {
+                            layer.msg('添加成功!', {icon: 1, time: 3000});
+                        }else {
+                            layer.msg('菜单名称已经存在了!',{icon:2,time:3000});
+                        }
                     },
-                    error: function (XmlHttpRequest, textStatus, errorThrown) {
-                        layer.msg('error!', {icon: 1, time: 1000});
+                    error: function(XmlHttpRequest, textStatus, errorThrown){
+                        layer.msg('error!',{icon:2,time:3000});
                     }
                 });
                 var index = parent.layer.getFrameIndex(window.name);
@@ -123,6 +161,5 @@
         });
     });
 </script>
-<!--/请在上方写此页面业务相关的脚本-->
 </body>
 </html>
