@@ -47,7 +47,7 @@
             <th scope="col" colspan="6">角色管理</th>
         </tr>
         <tr class="text-c">
-            <th width="25"><input type="checkbox" value="" name=""></th>
+            <th width="25"><input type="checkbox" value="" name="" id=""></th>
             <th width="40">ID</th>
             <th width="200">角色名</th>
             <th>用户列表</th>
@@ -245,7 +245,6 @@
             return false;
         }
         layer.confirm('角色删除须谨慎，确认要删除吗？', function () {
-            alert("666");
             $.ajax({
                 type: "post",
                 url: "/deleteMore",

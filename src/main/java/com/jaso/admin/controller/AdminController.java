@@ -326,7 +326,6 @@ public class AdminController {
     @RequestMapping("/deleteRole")
     public AjaxResult deleteRole(int role_id) {
         ajaxResult = new AjaxResult();
-        System.out.println(role_id);
 
         roleService.deleteRoleById(role_id);
 
@@ -339,7 +338,6 @@ public class AdminController {
     @RequestMapping("/deleteMore")
     public AjaxResult deleteMore(String roleId){
         ajaxResult = new AjaxResult();
-        System.out.println(roleId);
 
         if (null == roleId){
             ajaxResult.setMessage("至少选择一条数据");
