@@ -1,7 +1,10 @@
 package com.jaso.admin.realm;
 
 import com.jaso.admin.bean.Admin;
+import com.jaso.admin.bean.Permit;
+import com.jaso.admin.bean.Role;
 import com.jaso.admin.mapper.AdminMapper;
+import com.jaso.admin.mapper.RoleMapper;
 import com.jaso.admin.service.AdminService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
@@ -26,6 +29,9 @@ public class MyRealm extends AuthorizingRealm {
     @Resource
     private AdminMapper adminMapper;
 
+    @Resource
+    private RoleMapper roleMapper;
+
     @Override
     public String getName() {
         return "myRealm";
@@ -49,12 +55,18 @@ public class MyRealm extends AuthorizingRealm {
         // ======>模拟数据<======
 
         List<String> roleList = new ArrayList<String>();
-        roleList.add("CEO");
-        roleList.add("HR");
-
         List<String> perList = new ArrayList<String>();
-        perList.add("user:create");
-        perList.add("user:query");
+
+        Admin admin = adminMapper.select_adminByLoginName(username);
+
+        if (admin != null) {
+            for (Role role : admin.getRoles()) {
+                roleList.add(role.getRole_name());
+                for (Permit permit : role.getPermits()) {
+                    perList.add(role.getRole_name() + ":" + permit.getPermit_name());
+                }
+            }
+        }
 
         // =======>模拟结束<=======
 

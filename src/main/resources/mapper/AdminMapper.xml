@@ -13,6 +13,7 @@
         <result column="telephone" property="telephone"/>
         <result column="email" property="email"/>
         <result column="address" property="address"/>
+        <result column="create_date" property="create_date"/>
     </resultMap>
 
     <resultMap id="adminMapEx" type="com.jaso.admin.bean.Admin" extends="adminMap">
@@ -20,6 +21,7 @@
                     ofType="com.jaso.admin.bean.Role">
             <id column="role_id" property="role_id"/>
             <result column="role_name" property="role_name"/>
+            <result column="des" property="des"/>
 
             <collection property="permits"
                         ofType="com.jaso.admin.bean.Permit">
@@ -38,11 +40,15 @@
         admin_info.title_url,
         admin_info.telephone,
         admin_info.email,
-        admin_info.address
+        admin_info.address,
+        admin_info.create_date
+
     </sql>
     <sql id="roleSql">
         role_info.role_id,
-        role_info.role_name
+        role_info.role_name,
+        role_info.des
+
     </sql>
     <sql id="permitSql">
         permit_info.permit_id,
@@ -59,8 +65,21 @@
     <!--根据登录名查询-->
     <select id="select_adminByLoginName"
             parameterType="java.lang.String"
-            resultType="com.jaso.admin.bean.Admin">
-        SELECT * FROM admin_info WHERE login_name = #{value}
+            resultMap="adminMapEx">
+        SELECT
+
+        <include refid="adminSql"/>,
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM admin_info,admin_role, role_info, role_permit, permit_info
+
+        WHERE login_name = #{value}
+
+        AND admin_info.admin_id = admin_role.admin_id
+        and admin_role.role_id = role_info.role_id
+        and role_info.role_id = role_permit.role_id
+        AND role_permit.permit_id = permit_info.permit_id;
     </select>
 
     <!--登录查询-->
@@ -84,4 +103,66 @@
         AND role_permit.permit_id = permit_info.permit_id;
     </select>
 
+    <!--添加IP-->
+    <insert id="insert_IP"
+            parameterType="com.jaso.base.bean.IP">
+        INSERT INTO ip(ip_name, login_date, login_account)
+         VALUES(#{ip_name},#{login_date}, #{login_account})
+    </insert>
+
+    <!--根据名字查询IP-->
+    <select id="select_IPByName"
+            parameterType="java.lang.String"
+            resultType="com.jaso.base.bean.IP">
+        SELECT * FROM ip WHERE ip_name = #{value}
+    </select>
+
+    <!--跟新IP的Account-->
+    <update id="update_IPLoginAcc"
+            parameterType="com.jaso.base.bean.IP">
+        UPDATE ip SET login_account = #{login_account}, login_date = #{login_date}
+        where ip_id = #{ip_id}
+    </update>
+
+    <!--查询所有用户-->
+    <select id="select_allAdmin"
+            resultMap="adminMapEx">
+        SELECT
+
+        <include refid="adminSql"/>,
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM admin_info,admin_role, role_info, role_permit, permit_info
+
+        WHERE admin_info.admin_id = admin_role.admin_id
+        and admin_role.role_id = role_info.role_id
+        and role_info.role_id = role_permit.role_id
+        AND role_permit.permit_id = permit_info.permit_id;
+    </select>
+
+    <!--根据角色id查询有该角色的用户-->
+    <select id="select_adminByRoleId"
+            parameterType="int"
+            resultMap="adminMapEx">
+        SELECT
+
+        <include refid="adminSql"/>,
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM admin_info,admin_role, role_info, role_permit, permit_info
+
+        WHERE role_info.role_id = #{role_id}
+        AND admin_info.admin_id = admin_role.admin_id
+        and admin_role.role_id = role_info.role_id
+        and role_info.role_id = role_permit.role_id
+        AND role_permit.permit_id = permit_info.permit_id;
+    </select>
+
+    <!--添加Admin和role的关系-->
+    <insert id="insertAdminToRole"
+            parameterType="int">
+        INSERT INTO admin_role VALUES (#{admin_id}, #{role_id})
+    </insert>
 </mapper>

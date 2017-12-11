@@ -19,6 +19,7 @@ import sun.jvm.hotspot.debugger.Page;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -249,9 +250,13 @@ public class MainController {
         return "admin/admin-role";
     }
 
-    @RequestMapping(value = "admin-role-add")
-    public String adminRoleAdd() {
-        return "admin/admin-role-add";
+    @RequestMapping("admin-role-edit/{id}")
+    public String adminRoleEdit(@PathVariable int id, HttpSession session) {
+        System.out.println("角色id:  "+ id);
+
+        session.setAttribute("role_id", id);
+
+        return "admin/admin-role-edit";
     }
 
     @RequestMapping(value = "admin-list")
@@ -274,5 +279,9 @@ public class MainController {
         return "admin/menu-add";
     }
 
+    @RequestMapping("admin-role-add")
+    public String adminRoleAdd() {
+        return "admin/admin-role-add";
+    }
 
 }

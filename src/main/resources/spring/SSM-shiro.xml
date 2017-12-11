@@ -40,13 +40,12 @@
                 <!--authc : 需要认证才可以访问-->
                 /loginAdmin = authc
                 /index = authc
-
                 <!--退出-->
                 /logout = logout
 
                 <!--必须要有管理员(admin)身份才可以访问-->
                 <!--roles[XX] 代表 有XX角色才可以访问-->
-                /admin/** = roles[admin],authc
+                /admin/** = roles[超级管理员],authc
 
                 <!--user : 通过了认证/通过remember me认证通过可以访问-->
                 /** = user

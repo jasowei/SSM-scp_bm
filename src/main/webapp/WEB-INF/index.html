@@ -207,7 +207,7 @@
         layer_show(title, url, w, h);
     }
 
-    //
+    // 获取用户信息
     showAdmin();
 
     function showAdmin() {
@@ -220,7 +220,7 @@
             },
             success:function (rusult) {
 
-                $.cookie("admin", rusult.resultData);
+                $.cookie("adminId", rusult.resultData);
 
                 var role = "";
                 var roles = rusult.resultData.roles;
@@ -234,6 +234,9 @@
                     $("#role_name").html(roles.length > 0 ? roles[0].role_name : role);
                     $("#login_name").html(rusult.resultData.login_name);
                 }
+            },
+            error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error!', {icon: 2, time: 3000});
             }
         })
     }

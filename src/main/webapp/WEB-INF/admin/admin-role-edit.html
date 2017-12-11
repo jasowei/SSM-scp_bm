@@ -1,5 +1,4 @@
-﻿<!--_meta 作为公共模版分离出去-->
-<!DOCTYPE HTML>
+﻿﻿<!--_meta 作为公共模版分离出去-->
 <html>
 <head>
     <meta charset="utf-8">
@@ -38,9 +37,15 @@
 <article class="page-container">
     <form action="" method="post" class="form form-horizontal" id="form-admin-role-add">
         <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3">角色ID：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" placeholder="" id="role_id" name="roleName" readonly>
+            </div>
+        </div>
+        <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="role_name" name="roleName" onblur="checkName()">
+                <input type="text" class="input-text" value="" placeholder="" id="role_name" name="roleName" onblur="checkRoleName();">
             </div>
         </div>
         <div class="row cl">
@@ -72,7 +77,7 @@
         </div>
         <div class="row cl">
             <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
-                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save" onclick="addRole();"><i
+                <button type="submit" class="btn btn-success radius" id="admin-role-save" name="admin-role-save"><i
                         class="icon-ok"></i> 确定
                 </button>
             </div>
@@ -143,18 +148,42 @@
                         $("<label class=''><input class='input' type='checkbox' value='" + eve.permit_id + "' name='permit' id='" + eve.permit_id + "'/>" + eve.permit_name + "</label>").appendTo(permit).appendTo(permitList);
                     });
                 }
+                showRole()
             },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
                 layer.msg('error!', {icon: 2, time: 3000});
             }
         })
     }
-    /* 检查角色名 */
-    function checkName() {
-        if ($("#role_name").val().trim() == ""){
-            layer.msg('角色名不能为空',{icon:2,time:3000});
-            return false;
-        }
+
+    /* 表单回显 */
+    function showRole() {
+        $.ajax({
+            type: "post",
+            url: "/getRole",
+            success: function (obj) {
+                var role = obj.resultData;
+                if (obj.status) {
+                    $("#role_id").val(role.role_id);
+                    $("#role_name").val(role.role_name);
+                    $("#role_desc").val(role.des);
+
+                    var permits = document.getElementsByClassName("input");
+                    for (var i = 0; i < permits.length; i++) {
+                        $.each(role.permits, function (j, eva) {
+                            if (permits[i].id == eva.permit_id) {
+                                permits[i].checked = true
+                            }
+                        })
+                    }
+
+                }
+            }
+        })
+    }
+
+    /* check role_name */
+    function checkRoleName() {
         $.ajax({
             type:"post",
             url: "/checkRoleName",
@@ -172,9 +201,10 @@
         })
     }
 
-    /* 添加 */
-    function addRole() {
-        if($("#role_name").val().trim() == ""){
+    /* 编辑 */
+    $("#admin-role-save").click(function submit() {
+
+        if($("#role_name").val() == ""){
             layer.msg('角色名不能为空',{icon:2,time:3000});
             return false;
         }
@@ -189,22 +219,23 @@
 
         $.ajax({
             type: "post",
-            url: "/roleAdd",
+            url: "/roleEdit",
             data: {
+                role_id: $("#role_id").val(),
                 role_name: $("#role_name").val(),
                 des: $("#role_desc").val(),
                 permit: a
             },
             success: function (result) {
                 if (result.status) {
-                    layer.msg('添加成功 ! ', {icon: 1, time: 3000});
+                    layer.msg('编辑成功 ! ', {icon: 1, time: 3000});
                     location.href = "admin-role"
                 } else {
-                    layer.msg(result.message, {icon: 2, time: 3000});
+                    layer.msg('error! ' + result.message, {icon: 2, time: 3000});
                 }
             }
         })
-    }
+    })
 
 </script>
 <!--/请在上方写此页面业务相关的脚本-->

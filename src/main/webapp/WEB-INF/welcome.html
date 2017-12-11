@@ -24,8 +24,8 @@
 <body>
 <div class="page-container">
 	<p class="f-20 text-success">欢迎使用 {小区业主服务平台后台管理系统} <span class="f-14">v1.0</span></p>
-	<p>登录次数：18 </p>
-	<p>上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
+	<p id="account">登录次数：18 </p>
+	<p id="ip">上次登录IP：222.35.131.79.1  上次登录时间：2014-6-14 11:19:55</p>
 
 </div>
 <footer class="footer mt-20">
@@ -39,6 +39,23 @@
 <script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
 <script>
 
+	getIP();
+	function getIP() {
+		$.ajax({
+			type:"post",
+			url:"/getIP",
+			success:function (result) {
+				var ip = result.resultData;
+				if (result.status){
+					$("#ip").html("上次登录IP："+ ip.ip_name +"    上次登录时间：" + new Date(parseInt(ip.login_date)).toLocaleString());
+					$("#account").html("登录次数：" + ip.login_account)
+				}else {
+					$("#ip").html("初来匝道  登录IP："+ ip.ip_name);
+					$("#account").html("登录次数：1")
+				}
+			}
+		})
+	}
 </script>
 </body>
 </html>

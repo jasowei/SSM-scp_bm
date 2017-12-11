@@ -134,11 +134,16 @@
             },
             success: function (result) {
                 if (result.status == false){
-                    layer.msg('登录失败'+result.message,{icon:2,time:3000});
-                }else{
-                    layer.msg('登录成功',{icon:1,time:3000});
+                    layer.msg('登录失败 '+result.message,{icon:2,time:3000});
+                }else if(result.status == true) {
+                    layer.msg('登录成功 ',{icon:1,time:3000});
                     location.href = "/index"
+                } else {
+                    submit();
                 }
+            },
+            error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error!', {icon: 2, time: 3000});
             }
         })
     })
