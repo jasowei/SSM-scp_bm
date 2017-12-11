@@ -1505,7 +1505,7 @@
       <workItem from="1512691588054" duration="40162000" />
       <workItem from="1512779369011" duration="25545000" />
       <workItem from="1512950040728" duration="36268000" />
-      <workItem from="1512995176550" duration="110000" />
+      <workItem from="1512995176550" duration="148000" />
     </task>
     <task id="LOCAL-00001" summary="[SSM-scp_bm]&#10;&#10;第四次&#10;菜单管理 &amp; 登录   合并&#10;&#10;2017年12月07日20:42:39&#10;mxg">
       <created>1512650595439</created>
@@ -1528,7 +1528,14 @@
       <option name="project" value="LOCAL" />
       <updated>1512652234608</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="[SSM-scp_bm]&#10;&#10;角色管理&#10;&#10;mxg">
+      <created>1512995315813</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1512995315813</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1564,7 +1571,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="186172000" />
+    <option name="totallyTimeSpent" value="186210000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="33" width="1912" height="984" extended-state="6" />
@@ -1669,7 +1676,8 @@
     <MESSAGE value="[SSM-scp_bm]&#10;&#10;第四次&#10;菜单管理 &amp; 登录   合并&#10;&#10;2017年12月07日20:42:39&#10;mxg" />
     <MESSAGE value="[SSM-scp_bm]&#10;&#10;第四次&#10;菜单管理 &amp; 登录   合并&#10;2017年12月07日20:57:32&#10;mxg" />
     <MESSAGE value="[SSM-scp_bm]&#10;&#10;测试&#10;&#10;mxg" />
-    <option name="LAST_COMMIT_MESSAGE" value="[SSM-scp_bm]&#10;&#10;测试&#10;&#10;mxg" />
+    <MESSAGE value="[SSM-scp_bm]&#10;&#10;角色管理&#10;&#10;mxg" />
+    <option name="LAST_COMMIT_MESSAGE" value="[SSM-scp_bm]&#10;&#10;角色管理&#10;&#10;mxg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
