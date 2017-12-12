@@ -198,7 +198,7 @@ public class MainController {
             }
         }
 
-        Menu menu = new Menu(menuForm.getParent_id(), "icon", menuForm.getMenu_name(), "urlkey",
+        Menu menu = new Menu(menuForm.getParent_id(), "&#xe62e;", menuForm.getMenu_name(), "urlkey",
                 url, 1, type, size, 1, date, adminId);
         menuService.addMenu(menu);
         return 1;
@@ -268,7 +268,8 @@ public class MainController {
             }
         }
 
-        Menu menu = new Menu(menuForm.getMenu_id(), menuForm.getParent_id(), "icon", menuForm.getMenu_name(), "urlkey",
+        Menu menu = new Menu(menuForm.getMenu_id(), menuForm.getParent_id(),
+                menuForm.getMenu_name(), "urlkey",
                 url, 1, type, menu2.getSort(), 1, date, adminId);
         menuService.ediMenu(menu);
         return 1;

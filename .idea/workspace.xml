@@ -2,11 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1137a23-f33d-4393-aaf1-15bac4d456af" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base-1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/base/bean/Menu.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/base/bean/Menu.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,13 +54,18 @@
         <option value="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/AdminServiceImpl.java" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/5654d80b-d312-4f5e-a463-10c57c2ce58f/console.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/AdminMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu-add.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.html" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jaso/base/service/impl/MenuServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jaso/base/bean/Menu.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.html" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base.html" />
+        <option value="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" />
       </list>
     </option>
   </component>
@@ -80,6 +90,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
     <option name="y" value="23" />
     <option name="width" value="1920" />
     <option name="height" value="982" />
@@ -91,7 +102,7 @@
     <OptionsSetting value="true" id="Update" />
     <OptionsSetting value="true" id="Status" />
     <OptionsSetting value="true" id="Edit" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -140,6 +151,412 @@
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="system" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="base" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="bean" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="realm" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="SSM-Project" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jaso" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
@@ -155,6 +572,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/system" />
       <recent name="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller" />
     </key>
   </component>
@@ -671,15 +1089,23 @@
       <option name="presentableId" value="Default" />
       <updated>1513040344250</updated>
       <workItem from="1513040345682" duration="6497000" />
-      <workItem from="1513048164710" duration="1560000" />
+      <workItem from="1513048164710" duration="9095000" />
     </task>
+    <task id="LOCAL-00001" summary="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO">
+      <created>1513049985351</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1513049985351</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="8057000" />
+    <option name="totallyTimeSpent" value="15592000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="23" width="1920" height="982" extended-state="6" />
+    <frame x="4" y="23" width="1920" height="982" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -691,7 +1117,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.058426965" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10674157" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -699,7 +1125,7 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15335463" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960597" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.11821086" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -719,23 +1145,13 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jaso/admin/realm/MyRealm.java</url>
-          <line>88</line>
-          <properties />
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/jaso/admin/realm/MyRealm.java</url>
-          <line>50</line>
-          <properties />
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="5" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -744,192 +1160,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6288">
-          <caret line="262" column="13" selection-start-line="262" selection-start-column="13" selection-end-line="262" selection-end-column="13" />
-          <folding>
-            <marker date="1512996366000" expanded="true" signature="7791:7811" ph="..." />
-            <marker date="1512996366000" expanded="true" signature="7838:7846" ph="&amp;##xe6df;" />
-            <marker date="1512996366000" expanded="true" signature="7974:7994" ph="..." />
-            <marker date="1512996366000" expanded="true" signature="8020:8026" ph="&amp;nbsp;" />
-            <marker date="1512996366000" expanded="true" signature="8026:8032" ph="&amp;nbsp;" />
-            <marker date="1512996366000" expanded="true" signature="8032:8040" ph="&amp;##xe6e2;" />
-            <marker date="1512996366000" expanded="true" signature="8203:8223" ph="..." />
-            <marker date="1512996366000" expanded="true" signature="8255:8263" ph="&amp;##xe68f;" />
-            <marker date="1512996366000" expanded="true" signature="8759:8765" ph="←" />
-            <marker date="1512996366000" expanded="true" signature="8925:8931" ph="←" />
-            <marker date="1512996366000" expanded="true" signature="9625:9631" ph="→" />
-            <marker date="1512996366000" expanded="true" signature="9791:9797" ph="→" />
-            <marker date="1512996366000" expanded="true" signature="11708:11716" ph="&amp;##xe68f;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu-add.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3096">
-          <caret line="129" column="35" selection-start-line="129" selection-start-column="27" selection-end-line="129" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6864">
-          <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
-          <folding>
-            <element signature="e#8560#9499#0" expanded="false" />
-            <element signature="e#9556#10539#0" expanded="false" />
-            <element signature="e#10596#11017#0" expanded="false" />
-            <element signature="e#11042#12085#0" expanded="false" />
-            <marker date="1513047462000" expanded="true" signature="11259:11267" ph="&amp;##xe6d5;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu-edi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2760">
-          <caret line="115" column="36" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/5654d80b-d312-4f5e-a463-10c57c2ce58f/console.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="19" column="14" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.role_info">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1995">
-          <caret line="862" column="10" selection-start-line="862" selection-start-column="10" selection-end-line="862" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/bean/Role.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.admin_info">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
@@ -1011,6 +1241,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1023,6 +1254,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1035,13 +1267,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/service/MenuService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="21" column="0" selection-start-line="21" selection-start-column="0" selection-end-line="21" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1049,17 +1275,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="284">
           <caret line="20" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/service/impl/MenuServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="531">
-          <caret line="84" column="37" selection-start-line="84" selection-start-column="37" selection-end-line="84" selection-end-column="37" />
-          <folding>
-            <element signature="e#2218#2219#0" expanded="false" />
-            <element signature="e#2280#2281#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1080,6 +1295,7 @@
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1103,28 +1319,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="672">
-          <caret line="28" column="115" selection-start-line="28" selection-start-column="93" selection-end-line="28" selection-end-column="115" />
-          <folding>
-            <marker date="1512985546000" expanded="true" signature="311:351" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="485:533" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="650:693" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="782:829" ph="SELECT COUNT... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="937:1180" ph="INSERT into menu_info... " />
-            <marker date="1512985546000" expanded="true" signature="1339:1389" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="1519:1584" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="1672:1728" ph="UPDATE menu_... " />
-            <marker date="1512985546000" expanded="true" signature="1836:1876" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="1963:2019" ph="UPDATE menu_... " />
-            <marker date="1512985546000" expanded="true" signature="2125:2405" ph="UPDATE menu_... " />
-            <marker date="1512985546000" expanded="true" signature="2506:2564" ph="SELECT * FRO... menu_info" />
-            <marker date="1512985546000" expanded="true" signature="2686:2751" ph="SELECT * FRO... menu_info" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/AdminServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="268">
@@ -1133,14 +1327,6 @@
             <element signature="e#714#715#0" expanded="false" />
             <element signature="e#775#776#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu-edi.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2760">
-          <caret line="115" column="36" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="36" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1188,41 +1374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1942">
-          <caret line="262" column="13" selection-start-line="262" selection-start-column="13" selection-end-line="262" selection-end-column="13" />
-          <folding>
-            <marker date="1512996366000" expanded="true" signature="7791:7811" ph="..." />
-            <marker date="1512996366000" expanded="true" signature="7838:7846" ph="&amp;##xe6df;" />
-            <marker date="1512996366000" expanded="true" signature="7974:7994" ph="..." />
-            <marker date="1512996366000" expanded="true" signature="8020:8026" ph="&amp;nbsp;" />
-            <marker date="1512996366000" expanded="true" signature="8026:8032" ph="&amp;nbsp;" />
-            <marker date="1512996366000" expanded="true" signature="8032:8040" ph="&amp;##xe6e2;" />
-            <marker date="1512996366000" expanded="true" signature="8203:8223" ph="..." />
-            <marker date="1512996366000" expanded="true" signature="8255:8263" ph="&amp;##xe68f;" />
-            <marker date="1512996366000" expanded="true" signature="8759:8765" ph="←" />
-            <marker date="1512996366000" expanded="true" signature="8925:8931" ph="←" />
-            <marker date="1512996366000" expanded="true" signature="9625:9631" ph="→" />
-            <marker date="1512996366000" expanded="true" signature="9791:9797" ph="→" />
-            <marker date="1512996366000" expanded="true" signature="11708:11716" ph="&amp;##xe68f;" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-231">
-          <caret line="167" column="66" selection-start-line="167" selection-start-column="66" selection-end-line="167" selection-end-column="66" />
-          <folding>
-            <element signature="method#allMenu#0;class#MainController#0" expanded="false" />
-            <element signature="method#addMenu#0;class#MainController#0" expanded="false" />
-            <element signature="method#ediMenu#0;class#MainController#0" expanded="false" />
-            <element signature="method#adminRoleEdit#0;class#MainController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/RoleServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1247,48 +1398,332 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/welcome.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="211">
-          <caret line="243" column="41" selection-start-line="243" selection-start-column="41" selection-end-line="243" selection-end-column="41" />
+        <state relative-caret-position="-893">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.8.RELEASE/spring-web-4.3.8.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="119" column="0" selection-start-line="119" selection-start-column="0" selection-end-line="119" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="438">
+          <caret line="272" column="0" selection-start-line="272" selection-start-column="0" selection-end-line="272" selection-end-column="0" />
+          <folding>
+            <element signature="e#5211#6061#0" expanded="false" />
+            <element signature="e#6108#8601#0" expanded="false" />
+            <element signature="e#8644#9936#0" expanded="false" />
+            <element signature="e#9984#10033#0" expanded="false" />
+            <element signature="e#10073#10159#0" expanded="false" />
+            <element signature="e#10203#10233#0" expanded="false" />
+            <element signature="e#10276#10728#0" expanded="false" />
+            <element signature="e#10776#11619#0" expanded="false" />
+            <element signature="e#11658#11755#0" expanded="false" />
+            <element signature="e#11786#11817#0" expanded="false" />
+            <element signature="e#11847#12753#0" expanded="false" />
+            <element signature="e#12798#13685#0" expanded="false" />
+            <marker date="1512996366000" expanded="true" signature="7791:7811" ph="..." />
+            <marker date="1512996366000" expanded="true" signature="7838:7846" ph="&amp;##xe6df;" />
+            <marker date="1512996366000" expanded="true" signature="7974:7994" ph="..." />
+            <marker date="1512996366000" expanded="true" signature="8020:8026" ph="&amp;nbsp;" />
+            <marker date="1512996366000" expanded="true" signature="8026:8032" ph="&amp;nbsp;" />
+            <marker date="1512996366000" expanded="true" signature="8032:8040" ph="&amp;##xe6e2;" />
+            <marker date="1512996366000" expanded="true" signature="8203:8223" ph="..." />
+            <marker date="1512996366000" expanded="true" signature="8255:8263" ph="&amp;##xe68f;" />
+            <marker date="1512996366000" expanded="true" signature="8759:8765" ph="←" />
+            <marker date="1512996366000" expanded="true" signature="8925:8931" ph="←" />
+            <marker date="1512996366000" expanded="true" signature="9625:9631" ph="→" />
+            <marker date="1512996366000" expanded="true" signature="9791:9797" ph="→" />
+            <marker date="1512996366000" expanded="true" signature="11708:11716" ph="&amp;##xe68f;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/SSM-Project.iml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="504">
+          <caret line="83" column="13" selection-start-line="83" selection-start-column="13" selection-end-line="83" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/SSM-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="38" column="20" selection-start-line="38" selection-start-column="20" selection-end-line="38" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/service/MenuService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="50" column="68" selection-start-line="50" selection-start-column="19" selection-end-line="50" selection-end-column="68" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/realm/MyRealm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1339">
-          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="97" column="56" selection-start-line="97" selection-start-column="12" selection-end-line="97" selection-end-column="56" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml">
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/login.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="42">
-          <caret line="44" column="0" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+        <state relative-caret-position="326">
+          <caret line="138" column="73" selection-start-line="138" selection-start-column="20" selection-end-line="138" selection-end-column="73" />
+          <folding>
+            <element signature="e#6276#6796#0" expanded="false" />
+            <element signature="e#6835#7388#0" expanded="false" />
+            <element signature="e#7412#8147#0" expanded="false" />
+            <element signature="e#8182#8230#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/bean/Menu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="24" column="166" selection-start-line="24" selection-start-column="166" selection-end-line="24" selection-end-column="166" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="61" column="30" selection-start-line="61" selection-start-column="30" selection-end-line="61" selection-end-column="30" />
+          <folding>
+            <marker date="1513070598000" expanded="true" signature="311:351" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="485:533" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="650:693" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="782:829" ph="SELECT COUNT... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="937:1180" ph="INSERT into menu_info... " />
+            <marker date="1513070598000" expanded="true" signature="1339:1389" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="1519:1584" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="1672:1728" ph="UPDATE menu_... " />
+            <marker date="1513070598000" expanded="true" signature="1836:1876" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="1963:2019" ph="UPDATE menu_... " />
+            <marker date="1513070598000" expanded="true" signature="2125:2392" ph="UPDATE menu_... " />
+            <marker date="1513070598000" expanded="true" signature="2493:2551" ph="SELECT * FRO... menu_info" />
+            <marker date="1513070598000" expanded="true" signature="2673:2738" ph="SELECT * FRO... menu_info" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/menu-edi.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="115" column="36" selection-start-line="115" selection-start-column="16" selection-end-line="115" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1224">
+          <caret line="200" column="63" selection-start-line="200" selection-start-column="63" selection-end-line="200" selection-end-column="63" />
+          <folding>
+            <element signature="method#adminRoleEdit#0;class#MainController#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1224">
-          <caret line="284" column="0" selection-start-line="284" selection-start-column="0" selection-end-line="284" selection-end-column="0" />
+        <state relative-caret-position="360">
+          <caret line="235" column="17" selection-start-line="235" selection-start-column="17" selection-end-line="235" selection-end-column="17" />
           <folding>
             <element signature="e#8560#9499#0" expanded="false" />
             <element signature="e#9556#10539#0" expanded="false" />
             <element signature="e#10596#11017#0" expanded="false" />
             <element signature="e#11042#12085#0" expanded="false" />
-            <marker date="1513047462000" expanded="true" signature="11259:11267" ph="&amp;##xe6d5;" />
+            <marker date="1513071513000" expanded="true" signature="11259:11267" ph="&amp;##xe6d5;" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/welcome.html">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-893">
+        <state relative-caret-position="1344">
+          <caret line="84" column="51" selection-start-line="84" selection-start-column="51" selection-end-line="84" selection-end-column="51" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/base/service/impl/MenuServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="495">
+          <caret line="43" column="58" selection-start-line="43" selection-start-column="58" selection-end-line="43" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base-1.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="107" column="15" selection-start-line="107" selection-start-column="15" selection-end-line="124" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/bc17c186/5654d80b-d312-4f5e-a463-10c57c2ce58f/bms.menu_info">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="105" column="0" selection-start-line="105" selection-start-column="0" selection-end-line="105" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
           <folding />
         </state>
       </provider>

@@ -59,7 +59,7 @@
     <!--编辑菜单-->
     <update id="ediMenu" parameterType="com.jaso.base.bean.Menu">
         UPDATE menu_info SET
-        parent_id=#{parent_id},icon=#{icon},menu_name=#{menu_name},urlkey=#{urlkey},
+        parent_id=#{parent_id},menu_name=#{menu_name},urlkey=#{urlkey},
         url=#{url}, status=#{status}, type=#{type}, sort=#{sort}, level=#{level},
         create_time=#{create_time},create_id=#{create_id}
         WHERE menu_id = #{menu_id}

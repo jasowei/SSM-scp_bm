@@ -22,6 +22,20 @@ public class Menu {
     private Date update_time;//更新时间
     private int update_id;//更新者id
 
+    public Menu(int menu_id, int parent_id, String menu_name, String urlkey, String url, int status, int type, int sort, int level, Date create_time, int create_id) {
+        this.menu_id = menu_id;
+        this.parent_id = parent_id;
+        this.menu_name = menu_name;
+        this.urlkey = urlkey;
+        this.url = url;
+        this.status = status;
+        this.type = type;
+        this.sort = sort;
+        this.level = level;
+        this.create_time = create_time;
+        this.create_id = create_id;
+    }
+
     public Menu(int parent_id, String icon, String menu_name, String urlkey, String url, int status, int type, int sort, int level, Date create_time, int create_id) {
         this.parent_id = parent_id;
         this.icon = icon;

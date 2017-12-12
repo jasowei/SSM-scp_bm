@@ -1,6 +1,7 @@
 package com.jaso.admin.mapper;
 
 import com.jaso.admin.bean.Admin;
+import com.jaso.base.bean.IP;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
