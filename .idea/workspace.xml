@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1137a23-f33d-4393-aaf1-15bac4d456af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base-1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/base/bean/Menu.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/base/bean/Menu.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MenuMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/login.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/system/system-base.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -38,7 +29,18 @@
     <favorites_list name="SSM-Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="AdminController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1680">
+              <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -1089,7 +1091,7 @@
       <option name="presentableId" value="Default" />
       <updated>1513040344250</updated>
       <workItem from="1513040345682" duration="6497000" />
-      <workItem from="1513048164710" duration="9095000" />
+      <workItem from="1513048164710" duration="9256000" />
     </task>
     <task id="LOCAL-00001" summary="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO">
       <created>1513049985351</created>
@@ -1098,11 +1100,18 @@
       <option name="project" value="LOCAL" />
       <updated>1513049985351</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="第二次合并&#10;&#10;补充&#10;&#10;2017年12月12日18:39:39&#10;JASO">
+      <created>1513075205230</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1513075205230</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="15592000" />
+    <option name="totallyTimeSpent" value="15753000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1920" height="982" extended-state="6" />
@@ -1117,8 +1126,8 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.10674157" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36292136" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1134,6 +1143,24 @@
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32921347" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
       <collection />
@@ -1147,7 +1174,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO" />
-    <option name="LAST_COMMIT_MESSAGE" value="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO" />
+    <MESSAGE value="第二次合并&#10;&#10;补充&#10;&#10;2017年12月12日18:39:39&#10;JASO" />
+    <option name="LAST_COMMIT_MESSAGE" value="第二次合并&#10;&#10;补充&#10;&#10;2017年12月12日18:39:39&#10;JASO" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1722,7 +1750,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
+        <state relative-caret-position="-1680">
           <caret line="70" column="6" selection-start-line="70" selection-start-column="6" selection-end-line="70" selection-end-column="6" />
           <folding />
         </state>
