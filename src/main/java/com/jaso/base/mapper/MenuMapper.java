@@ -1,8 +1,6 @@
 package com.jaso.base.mapper;
 
 import com.jaso.base.bean.Menu;
-import com.jaso.base.util.PageBean;
-import com.jaso.base.util.PageExt;
 
 import java.util.List;
 
@@ -32,4 +30,8 @@ public interface MenuMapper {
     void rcoMenu(Integer id);
 
     void ediMenu(Menu menu);
+
+    List<Menu> pMenu();
+    List<Menu> sMenu(Integer id);
+
 }

@@ -13,4 +13,8 @@ public interface AdminService {
     Admin select_adminByLoginName(String login_name);
 
     Admin select_adminByLoginNameAndPwd(Admin admin);
+
+    Admin findByEmail(String email);
+
+    void updateByEmail(String email);
 }

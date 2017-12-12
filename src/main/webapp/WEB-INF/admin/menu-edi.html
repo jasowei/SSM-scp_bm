@@ -20,7 +20,7 @@
     <script type="text/javascript" src="/resources/lib/DD_belatedPNG_0.0.8a-min.js"></script>
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
-    <title>添加菜单</title>
+    <title>编辑菜单</title>
     <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
@@ -28,6 +28,13 @@
 <article class="page-container">
 
     <form class="form form-horizontal" id="form-admin-add">
+        <div class="row cl">
+            <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>ID：</label>
+            <div class="formControls col-xs-8 col-sm-9">
+                <input type="text" class="input-text" value="" readonly="readonly"
+                        id="menu_id" name="menu_id">
+            </div>
+        </div>
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
@@ -98,6 +105,30 @@
     }
 
 
+    /*回填*/
+    show();
+    function show() {
+        $.ajax({
+            url: "backfill",
+            type: "post",
+            async: false,
+            data:{
+                id:$.cookie("ediID")
+            },
+            success: function (result) {
+                if (result != null){
+                    $("#menu_name").val(result.menu_name);
+                    $("#url").val(result.url);
+                    $("#parent_id").val(result.parent_id);
+                    $("#menu_id").val(result.menu_id)
+                }
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error-2!',{icon:2,time:3000});
+            }
+        });
+    }
+
+
     /*验证提交表单*/
     $(function () {
         $('.skin-minimal input').iCheck({
@@ -127,7 +158,7 @@
 
                 $(form).ajaxSubmit({
                     type: 'post',
-                    url: "addMenu" ,
+                    url: "ediMenu" ,
                     success: function(data){
                         if (data == 1) {
                             layer.msg('操作成功 ', {icon: 1, time: 5000});

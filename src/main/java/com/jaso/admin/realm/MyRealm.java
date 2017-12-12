@@ -48,13 +48,8 @@ public class MyRealm extends AuthorizingRealm {
 
         // ======>模拟数据<======
 
-        List<String> roleList = new ArrayList<String>();
-        roleList.add("CEO");
-        roleList.add("HR");
 
-        List<String> perList = new ArrayList<String>();
-        perList.add("user:create");
-        perList.add("user:query");
+
 
         // =======>模拟结束<=======
 
@@ -64,14 +59,15 @@ public class MyRealm extends AuthorizingRealm {
         SimpleAuthorizationInfo info =
                 new SimpleAuthorizationInfo();
 
-        info.addRoles(roleList);
-        info.addStringPermissions(perList);
+//        info.addRoles(roleList);
+//        info.addStringPermissions(perList);
 
         return info;
     }
 
     @Override
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
+    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken)
+            throws AuthenticationException {
 
         // 获得用户此次输入的用户名
         String username = (String) authenticationToken.getPrincipal();

@@ -47,4 +47,14 @@ public class AdminServiceImpl implements AdminService {
 //        return admins!= null && admins.size()>0?admins.get(0):null;
         return adminMapper.select_adminByLoginNameAndPwd(admin);
     }
+
+    @Override
+    public Admin findByEmail(String email) {
+        return adminMapper.findByEmail(email);
+    }
+
+    @Override
+    public void updateByEmail(String email) {
+        adminMapper.updateByEmail(email);
+    }
 }

@@ -36,12 +36,14 @@
 <div class="page-container">
 
     <div class="text-c">
-        <form class="Huiform" method="post" action="" target="_self">
-            <input type="text" class="input-text" style="width:250px" name="">
-            <button type="submit" class="btn btn-success" name="">
-                <i class="Hui-iconfont">&#xe665;</i> 搜索
-            </button>
-        </form>
+        <!--<form class="Huiform" target="_self">-->
+        <input type="text" value="" class="input-text" style="width:250px" id="searchInput" name="search"
+               data-toggle="popover" title="您可以这样搜搜看:"
+               data-content="管理  小区  权限  设置 ..." data-placement="bottom">
+        <button class="btn btn-success" onclick="showMenu(1,5)">
+            <i class="Hui-iconfont">&#xe665;</i> 搜索
+        </button>
+        <!--</form>-->
     </div>
     <div class="cl pd-5 bg-1 bk-gray mt-20">
 		<span class="l">
@@ -63,7 +65,7 @@
             <th>类型(级别)</th>
             <th>链接</th>
             <th>更新时间</th>
-            <th>创建者</th>
+            <th>操作者</th>
             <th>显示(是/否)</th>
             <th>操作</th>
         </tr>
@@ -99,22 +101,52 @@
 <script type="text/javascript" src="/resources/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
+//    /*搜索*/
+//    function searching() {
+//        if (($("#searchInput").val()).trim().equals("")) {
+//            showMenu(1, 5);
+//        } else {
+//            $.ajax({
+//                url: "searchMenu",
+//                type: "post",
+//                async: false,
+//                data: {
+//                    search: $("#searchInput").val()
+//                },
+//                success: function (result) {
+//                    $("#searchInput").val(result.search);
+//                    if (result.menuList.length() == 0) {
+//                        layer.msg('不瞒你说,并没有找到你想要的!', {icon: 0, time: 5000});
+//                    }
+//                    $("#tab").html("");
+//                    $("#page").html("");
+//                    $.each(result.menuList, function (i, menu) {
+//                        addNewTR(menu);
+//                    });
+//
+//                }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+//                    layer.msg('error!', {icon: 2, time: 3000});
+//                }
+//            })
+//        }
+//    }
 
-    //当前第一页,显示5条数据
+
+    /*默认:当前第一页,显示5条数据*/
     showMenu(1, 5);
-
-    //普通查询//
     function showMenu(pageNum, pageSize) {
         $.ajax({
             url: "allMenu",
             type: "post",
+            async: false,
             data: {
                 "pageNum": pageNum,
-                "pageSize": pageSize
+                "pageSize": pageSize,
+                search: $("#searchInput").val()
             },
             success: function (result) {
                 if (result.size == 0) {
-                    layer.msg('不瞒你说,这里空空如也!', {icon: 0, time: 5000});
+                    layer.msg('不瞒你说,并没有找到你想要的!', {icon: 0, time: 5000});
                 }
                 var list = result.list;
                 $("#tab").html("");
@@ -124,10 +156,11 @@
                     addNewTR(menu);
                 });
 
-            },error: function(XmlHttpRequest, textStatus, errorThrown){
-                layer.msg('error!',{icon:2,time:3000});
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error-1!', {icon: 2, time: 3000});
             }
         })
+
     }
 
     //查询显示所有菜单//
@@ -138,6 +171,7 @@
         $.ajax({
             url: "select_menuById",
             type: "post",
+            async: false,
             data: {
                 id: menu.parent_id
             },
@@ -145,8 +179,8 @@
                 if (result.menu_name != null) {
                     td3.html("<p>" + result.menu_name + "</p>");
                 }
-            },error: function(XmlHttpRequest, textStatus, errorThrown){
-                layer.msg('error!',{icon:2,time:3000});
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error-2-1!', {icon: 2, time: 3000});
             }
         });
 
@@ -156,15 +190,17 @@
         var td7 = $("<td></td>")
         //查创建者
         $.ajax({
-            url: "",
-        type: "post",
+            url: "selectAdminById",
+            type: "post",
             data: {
                 id: menu.create_id
             },
             success: function (result) {
-                if (result.menu_name != null) {
-                    td7.html("<p>"+result.real_name+"</p>");
+                if (result.real_name != null) {
+                    td7.html("<p>" + result.real_name + "</p>");
                 }
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error-2-2!', {icon: 2, time: 3000});
             }
         });
 
@@ -201,7 +237,7 @@
         // 页码显示
         var pages = result.pages;
         for (var i = 1; i <= pages; i++) {
-            var pageTrue = $("<li class='active'> <span>" + i + "<span class='sr-only'>(current)</span></span></li>");
+            var pageTrue = $("<li class='active'> <span>" + i + "<span class='sr-only'>(current)</span></span> </li>");
             var pageFalse = $("<li><a href='#' onclick='showMenu(" + i + ",5)'>" + i + "</a></li>");
             var somePage = result.pageNum == i ? pageTrue : pageFalse;
             $("#page").append(somePage);
@@ -217,6 +253,7 @@
         $("#page").append(afterPage);
     }
 
+
     /*添加*/
     function menu_add(title, url) {
         layer_show(title, url, 800, 500);
@@ -224,15 +261,14 @@
 
     /*编辑*/
     function menu_edit(id) {
-        layer_show("编辑", "menu-edi/"+id, 800, 500);
-
+        $.cookie("ediID", id);
+        layer_show("编辑", "menu-edi", 800, 500);
     }
 
     /*删除*/
     function menu_del(obj, id) {
         popup(obj, id)
     }
-
     //w2ui提示框
     function popup(obj, id) {
         w2popup.open({
@@ -246,10 +282,9 @@
             showMax: true
         });
     }
-
     //验证身份(密码), 执行操作
     function password(id) {
-        if ($("#pwd").val() == 123) {
+        if ($("#pwd").val() == $.cookie("password")) {
 
             $.ajax({
                 type: 'POST',
@@ -270,7 +305,7 @@
                 },
                 error: function (data) {
                     console.log("移除失败!");
-                },
+                }
             });
 
         } else {
@@ -284,13 +319,10 @@
     function recover() {
         $("#rco").html("<i class='Hui-iconfont'>&#xe68f;</i>");
         showDelMenu(1, 5)
-
     }
-
     function menu_recover(id) {
         showConfirm(id)
     }
-
     function showConfirm(id) {
         w2confirm('您是要恢复此菜单并重新显示吗?')
                 .yes(function () {
@@ -317,7 +349,6 @@
                     console.log('再想想~');
                 });
     }
-
     function showDelMenu(pageNum, pageSize) {
         $.ajax({
             url: "allDelMenu",
@@ -341,8 +372,8 @@
                 }
 
 
-            },error: function(XmlHttpRequest, textStatus, errorThrown){
-                layer.msg('error!',{icon:2,time:3000});
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error!', {icon: 2, time: 3000});
             }
         })
     }

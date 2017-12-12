@@ -4,7 +4,7 @@
         <mapper namespace="com.jaso.base.mapper.MenuMapper">
 
     <!--查询所有menu-->
-    <select id="findAll" resultType="com.jaso.base.bean.Menu">
+    <select id="findAll" resultType="com.jaso.base.bean.Menu" >
         SELECT * FROM menu_info WHERE status = 1
     </select>
 
@@ -64,5 +64,14 @@
         create_time=#{create_time},create_id=#{create_id}
         WHERE menu_id = #{menu_id}
     </update>
+
+    <!--主页显示-->
+    <select id="pMenu" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE status = 1 AND parent_id = 0;
+    </select>
+    <!--父-子菜单-->
+    <select id="sMenu" parameterType="int" resultType="com.jaso.base.bean.Menu">
+        SELECT * FROM menu_info WHERE status = 1 AND parent_id = #{value};
+    </select>
 
 </mapper>

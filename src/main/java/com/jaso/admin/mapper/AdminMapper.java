@@ -23,4 +23,8 @@ public interface AdminMapper {
 
 //    List<Admin> select_adminByLoginNameAndPwd(Admin admin);
     Admin select_adminByLoginNameAndPwd(Admin admin);
+
+    Admin findByEmail(String email);
+
+    void updateByEmail(String email);
 }

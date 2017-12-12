@@ -49,6 +49,7 @@
         permit_info.permit_name
     </sql>
 
+    <!--根据id查询-->
     <select id="select_adminById"
             parameterType="int"
             resultType="com.jaso.admin.bean.Admin">
@@ -60,7 +61,7 @@
     <select id="select_adminByLoginName"
             parameterType="java.lang.String"
             resultType="com.jaso.admin.bean.Admin">
-        SELECT * FROM admin_info WHERE login_name = #{value}
+        SELECT * FROM admin_info WHERE login_name = #{value};
     </select>
 
     <!--登录查询-->
@@ -83,5 +84,16 @@
         and role_info.role_id = role_permit.role_id
         AND role_permit.permit_id = permit_info.permit_id;
     </select>
+
+
+    <!--根据email查找用户-->
+    <select id="findByEmail" parameterType="java.lang.String" resultType="com.jaso.admin.bean.Admin">
+        SELECT * from admin_info WHERE email = #{value}
+    </select>
+
+    <!--初始化密码-->
+    <update id="updateByEmail" parameterType="java.lang.String">
+        UPDATE admin_info SET password='123456' WHERE email = #{value}
+    </update>
 
 </mapper>

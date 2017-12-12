@@ -60,6 +60,8 @@
                     <label for="online">
                         <input type="checkbox" name="online" id="online" value="">
                         使我保持登录状态</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a onclick="popup()">忘记密码?</a>
                 </div>
             </div>
             <div class="row cl">
@@ -134,14 +136,85 @@
             },
             success: function (result) {
                 if (result.status == false){
-                    layer.msg('登录失败'+result.message,{icon:2,time:3000});
+                    layer.msg('[登录失败] : '+result.message,{icon:2,time:3000});
                 }else{
                     layer.msg('登录成功',{icon:1,time:3000});
                     location.href = "/index"
+
                 }
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:1000});
             }
         })
     })
+
+
+    //        忘记密码
+    function popup() {
+        w2popup.open({
+            width: 400,
+            height: 300,
+            title: '{ 忘 记 密 码 }',
+            body: '<div class="w2ui-centered"><h2>是不是忘记密码了?</h2>' +
+            '<h4>通过您注册时使用的邮箱,验证找回密码.</h4>' +
+            '<br><br><br>  <input id="email" type="text" class="width200"/></div>',
+            buttons: '<button class="w2ui-btn" onclick="verifyEmail()">验证邮箱</button>' +
+            '<button class="w2ui-btn" onclick="w2popup.close();">我只是输入错误</button>',
+            showMax: true
+        });
+    }
+    //验证邮箱
+    function verifyEmail() {
+      $.ajax({
+            url: "verifyEmail",
+            type: "get",
+            data: {
+                "email": $("#email").val()
+            },
+            success: function (data) {
+                if (data == 1) {
+                    //ok
+                    popup1();
+                } else if (data == 0){
+                    //no
+                    popup3();
+                  }
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+
+        });
+    }
+
+    function popup1() {
+        w2popup.lock("loading...", true);
+        setTimeout(function () { w2popup.unlock(); }, 3000);
+        w2alert("新的初始密码正发送到您的邮箱...");
+        $.ajax({
+            url: "sendEmail",
+            type: "post",
+            data: {
+                "email": $("#email").val()
+            },
+            success: function (data) {
+                if (data == 1){
+                    w2popup.open({
+                        title: ' 邮件已发送成功:',
+                        body: '<div class="w2ui-centered"><h1>√  新密码已发送到邮箱,请注意查收!</h1>'
+                    });
+                }
+            },error: function(XmlHttpRequest, textStatus, errorThrown){
+                layer.msg('error!',{icon:2,time:3000});
+            }
+
+        });
+
+    }
+
+    //邮箱无效
+    function popup3() {
+        w2alert("× 邮箱地址不存在,请重新确认您的邮箱!");
+    }
 
 
 </script>

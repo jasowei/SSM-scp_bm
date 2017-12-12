@@ -3,10 +3,8 @@ package com.jaso.base.controller;
 import com.github.pagehelper.PageInfo;
 import com.jaso.admin.bean.Admin;
 import com.jaso.base.bean.Menu;
+import com.jaso.base.bean.MenuExt;
 import com.jaso.base.service.MenuService;
-import com.jaso.base.util.PageBean;
-import com.jaso.base.util.PageExt;
-import com.jaso.base.util.VerifyCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -17,8 +15,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import sun.jvm.hotspot.debugger.Page;
 
 import javax.annotation.Resource;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -61,17 +61,35 @@ public class MainController {
     private MenuService menuService;
 
     /**
-     * 查询所有菜单
+     * --->查询所有菜单
      *
      * @return
      */
     @ResponseBody
     @RequestMapping(value = "allMenu")
     public PageInfo<Menu> allMenu(@RequestParam("pageNum") Integer pageNum,
-                                  @RequestParam("pageSize") Integer pageSize) {
-        PageInfo<Menu> allMenu = menuService.select_allmenu(pageNum, pageSize);
+                                  @RequestParam("pageSize") Integer pageSize,
+                                  @RequestParam("search") String search) {
+
+        PageInfo<Menu> allMenu = menuService.select_allmenu(pageNum, pageSize,search);
+        System.out.println("<<<菜单界面>>>");
+        System.out.println("搜索结果 : "+allMenu.getList());
         return allMenu;
     }
+
+//    /**
+//     * 搜索
+//     */
+//    @ResponseBody
+//    @RequestMapping(value = "searchMenu")
+//    public MenuExt searchMenu(@RequestParam("search") String search){
+//        System.out.println("搜索输入 : " + search);
+//        List<Menu> menuList = menuService.searchMenu(search);
+//        MenuExt menuExt = new MenuExt(menuList,search);
+//        System.out.println("搜索结果 : "+menuList);
+//        return menuExt;
+//    }
+
 
     /**
      * 根据id查菜单
@@ -97,50 +115,9 @@ public class MainController {
         return menuList;
     }
 
-    /**
-     * 添加菜单
-     *
-     * @return
-     */
-    @ResponseBody
-    @RequestMapping(value = "addMenu")
-    public int addMenu(Menu menuForm) {
-        System.out.println("表单id : "+menuForm.getMenu_id());
-        //有id信息, 编辑
-        if (menuForm.getMenu_id() != 0) {
-            ediMenu(menuForm);
-        } else {
-
-            Menu menu1 = menuService.select_menuByName(menuForm.getMenu_name());
-            if (menu1 != null) {
-                return 0;
-            }
-
-            //类型
-            int type;
-            if (menuForm.getParent_id() == 0) {
-                type = 1;
-            } else {
-                type = 2;
-            }
-            //时间
-            Date date = new Date();
-            SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
-            df.format(date);// new Date()为获取当前系统时间
-            //序号
-            int size = menuService.menuSize() + 1;
-
-            Menu menu = new Menu(menuForm.getParent_id(), "icon", menuForm.getMenu_name(), "urlkey",
-                    menuForm.getUrl(), 1, type, size, 1, date, 1);
-            menuService.addMenu(menu);
-            return 1;
-        }
-        return 0;
-    }
-
 
     /**
-     * 删除菜单
+     * --->删除菜单
      *
      * @return
      */
@@ -170,7 +147,7 @@ public class MainController {
     }
 
     /**
-     * 恢复菜单
+     * --->恢复菜单
      *
      * @return
      */
@@ -182,50 +159,25 @@ public class MainController {
     }
 
     /**
-     * 编辑菜单
+     * --->添加菜单
      *
      * @return
      */
-    @RequestMapping(value = "menu-edi/{id}")
-    public String menuEdi(@PathVariable
-                                  int id,
-                          HttpServletRequest request) {
-        Menu menu = menuService.select_menuById(id);
-
-        System.out.println("要编辑的id : "+id);
-        request.setAttribute("id", id);
-        request.setAttribute("menu", menu);
-
-        return "admin/menu-add";
-    }
-
     @ResponseBody
-    @RequestMapping(value = "backfill")
-    public Menu backfill(HttpServletRequest request) {
+    @RequestMapping(value = "addMenu")
+    public int addMenu(Menu menuForm, HttpServletRequest request) {
 
-        Object id = request.getAttribute("id");
-        if (id == null){
-            System.out.println("~添加~");
-            return null;
-        }
-        System.out.println("~编辑~");
-        return (Menu) request.getAttribute("menu");
-    }
-
-    @ResponseBody
-    @RequestMapping(value = "ediMenu")
-    public int ediMenu(Menu menuForm) {
-
-        Menu menu2 = menuService.select_menuById(menuForm.getMenu_id());
         Menu menu1 = menuService.select_menuByName(menuForm.getMenu_name());
-        if (menu1 != null && !menu1.getMenu_name().equals(menu2.getMenu_name())) {
+        if (menu1 != null) {
             return 0;
         }
 
         //类型
         int type;
+        String url = menuForm.getUrl();
         if (menuForm.getParent_id() == 0) {
             type = 1;
+            url = "";
         } else {
             type = 2;
         }
@@ -236,10 +188,112 @@ public class MainController {
         //序号
         int size = menuService.menuSize() + 1;
 
+        //创建者
+        int adminId = 0;
+        Cookie[] cookie = request.getCookies();
+        for (int i = 0; i < cookie.length; i++) {
+            Cookie cook = cookie[i];
+            if (cook.getName().equalsIgnoreCase("adminId")) { //获取键
+                adminId = Integer.parseInt(cook.getValue());
+            }
+        }
+
+        Menu menu = new Menu(menuForm.getParent_id(), "icon", menuForm.getMenu_name(), "urlkey",
+                url, 1, type, size, 1, date, adminId);
+        menuService.addMenu(menu);
+        return 1;
+
+    }
+
+
+    /**
+     * --->编辑菜单
+     *
+     * @return
+     */
+    @RequestMapping(value = "menu-edi")
+    public String menuEdi() {
+        return "admin/menu-edi";
+    }
+
+    /**
+     * 回填
+     *
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "backfill")
+    public Menu backfill(Integer id) {
+        System.out.println("~编辑~"+id);
+        Menu menu = menuService.select_menuById(id);
+        return menu;
+
+    }
+
+    /**
+     * 编辑操作
+     */
+    @ResponseBody
+    @RequestMapping(value = "ediMenu")
+    public int ediMenu(Menu menuForm, HttpServletRequest request) {
+
+        //名称去重
+        Menu menu2 = menuService.select_menuById(menuForm.getMenu_id());
+        Menu menu1 = menuService.select_menuByName(menuForm.getMenu_name());
+        if (menu1 != null && !menu1.getMenu_name().equals(menu2.getMenu_name())) {
+            return 0;
+        }
+
+        //类型
+        int type;
+        String url = menuForm.getUrl();
+        if (menuForm.getParent_id() == 0) {
+            type = 1;
+            url = "";
+        } else {
+            type = 2;
+        }
+        //时间
+        Date date = new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");//设置日期格式
+        df.format(date);// new Date()为获取当前系统时间
+
+        //创建者
+        int adminId = 0;
+        Cookie[] cookie = request.getCookies();
+        for (int i = 0; i < cookie.length; i++) {
+            Cookie cook = cookie[i];
+            if (cook.getName().equalsIgnoreCase("adminId")) { //获取键
+                adminId = Integer.parseInt(cook.getValue());
+            }
+        }
+
         Menu menu = new Menu(menuForm.getMenu_id(), menuForm.getParent_id(), "icon", menuForm.getMenu_name(), "urlkey",
-                menuForm.getUrl(), 1, type, size, 1, date, 1);
+                url, 1, type, menu2.getSort(), 1, date, adminId);
         menuService.ediMenu(menu);
         return 1;
+    }
+
+
+    /**
+     * 菜单
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/showMenu")
+    public List<Menu> pMenu(){
+        List<Menu> menuList = menuService.findAllpMenu();
+        return menuList;
+    }
+    /**
+     * 子菜单
+     * @return
+     */
+    @ResponseBody
+    @RequestMapping(value = "/sonMenu")
+    public List<Menu> sMenu(Integer id){
+        List<Menu> menuList = menuService.findAllsMenu(id);
+        return menuList;
     }
 
 
@@ -272,6 +326,13 @@ public class MainController {
     @RequestMapping(value = "menu-add")
     public String menuAdd() {
         return "admin/menu-add";
+    }
+
+    //----------system------------
+
+    @RequestMapping(value = "system-base")
+    public String systembase() {
+        return "system/system-base";
     }
 
 

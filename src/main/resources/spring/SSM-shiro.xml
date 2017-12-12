@@ -36,6 +36,8 @@
                 <!--anon : 代表资源可以匿名访问-->
                 /resources/** = anon
                 /getVerifyCode = anon
+                /verifyEmail = anon
+                /sendEmail = anon
 
                 <!--authc : 需要认证才可以访问-->
                 /loginAdmin = authc
@@ -46,7 +48,7 @@
 
                 <!--必须要有管理员(admin)身份才可以访问-->
                 <!--roles[XX] 代表 有XX角色才可以访问-->
-                /admin/** = roles[admin],authc
+                /admin/** = roles[权限管理],authc
 
                 <!--user : 通过了认证/通过remember me认证通过可以访问-->
                 /** = user
