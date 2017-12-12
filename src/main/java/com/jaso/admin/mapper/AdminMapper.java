@@ -24,6 +24,30 @@ public interface AdminMapper {
 //    List<Admin> select_adminByLoginNameAndPwd(Admin admin);
     Admin select_adminByLoginNameAndPwd(Admin admin);
 
+    /**
+     * 添加 IP 对象
+     */
+    void insert_IP(IP ip);
+
+    /**
+     * 根据 IP地址查询
+     */
+    IP select_IPByName(String ip_name);
+
+    /**
+     * 跟新 IP 的登录时间和登录次数
+     */
+    void update_IPLoginAcc(IP ip);
+
+    /**
+     * 查询所有用户
+     */
+    List<Admin> select_allAdmin();
+
+    List<Admin> select_adminByRoleId(int role_id);
+
+    void insertAdminToRole(@Param("admin_id") int i, @Param("role_id") int role_id);
+
     Admin findByEmail(String email);
 
     void updateByEmail(String email);

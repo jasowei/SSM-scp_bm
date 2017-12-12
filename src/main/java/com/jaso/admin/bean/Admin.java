@@ -1,5 +1,6 @@
 package com.jaso.admin.bean;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -17,6 +18,7 @@ public class Admin {
     private String email;//email
     private String address;//地址
     private List<Role> roles;//角色
+    private Date create_date;//创建时间
 
     public Admin(String login_name, String password, String real_name, String gender, String title_url, String telephone, String email, String address) {
         this.login_name = login_name;
@@ -64,6 +66,33 @@ public class Admin {
         this.roles = roles;
     }
 
+    public Admin(int admin_id, String login_name, String password, String real_name, String gender, String title_url, String telephone, String email, String address, List<Role> roles, Date create_date) {
+        this.admin_id = admin_id;
+        this.login_name = login_name;
+        this.password = password;
+        this.real_name = real_name;
+        this.gender = gender;
+        this.title_url = title_url;
+        this.telephone = telephone;
+        this.email = email;
+        this.address = address;
+        this.roles = roles;
+        this.create_date = create_date;
+    }
+
+    public Admin(String login_name, String password, String real_name, String gender, String title_url, String telephone, String email, String address, List<Role> roles, Date create_date) {
+        this.login_name = login_name;
+        this.password = password;
+        this.real_name = real_name;
+        this.gender = gender;
+        this.title_url = title_url;
+        this.telephone = telephone;
+        this.email = email;
+        this.address = address;
+        this.roles = roles;
+        this.create_date = create_date;
+    }
+
     @Override
     public String toString() {
         return "Admin{" +
@@ -77,7 +106,16 @@ public class Admin {
                 ", email='" + email + '\'' +
                 ", address='" + address + '\'' +
                 ", roles=" + roles +
+                ", create_date=" + create_date +
                 '}';
+    }
+
+    public Date getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(Date create_date) {
+        this.create_date = create_date;
     }
 
     public List<Role> getRoles() {

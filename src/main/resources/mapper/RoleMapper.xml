@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jaso.admin.mapper.RoleMapper">
+
+    <resultMap id="roleMap" type="com.jaso.admin.bean.Role">
+        <id column="role_id" property="role_id"/>
+        <result column="role_name" property="role_name"/>
+        <result column="des" property="des"/>
+    </resultMap>
+
+    <resultMap id="roleMapEx" type="com.jaso.admin.bean.Role" extends="roleMap">
+        <collection property="permits"
+                    ofType="com.jaso.admin.bean.Permit">
+            <id column="permit_id" property="permit_id"/>
+            <result column="permit_name" property="permit_name"/>
+        </collection>
+    </resultMap>
+
+    <sql id="roleSql">
+        role_info.role_id,
+        role_info.role_name,
+        role_info.des
+    </sql>
+    <sql id="permitSql">
+        permit_info.permit_id,
+        permit_info.permit_name
+    </sql>
+
+    <!--查询所有-->
+    <select id="select_allRole"
+            resultMap="roleMap">
+        SELECT
+
+        <include refid="roleSql"/>
+
+        FROM role_info
+    </select>
+
+    <!--查询所有的权限-->
+    <select id="select_allPermit"
+            resultType="com.jaso.admin.bean.Permit">
+        SELECT * FROM permit_info
+    </select>
+
+    <!--根据id查询角色-->
+    <select id="select_RoleById"
+            parameterType="int"
+            resultMap="roleMapEx">
+        SELECT
+
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM role_info, role_permit, permit_info
+
+        WHERE role_info.role_id = #{role_id}
+
+        and role_info.role_id = role_permit.role_id
+        and role_permit.permit_id = permit_info.permit_id
+
+    </select>
+
+    <!--更新角色-->
+    <update id="updateRole"
+            parameterType="com.jaso.admin.bean.Permit">
+        UPDATE role_info SET role_name = #{role_name},des = #{des}
+        where role_id = #{role_id}
+    </update>
+
+    <!--根据名称查询角色-->
+    <select id="select_RoleByName"
+            parameterType="java.lang.String"
+            resultMap="roleMapEx">
+        SELECT
+
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM role_info, role_permit, permit_info
+
+        WHERE role_info.role_name = #{value}
+
+        and role_info.role_id = role_permit.role_id
+        and role_permit.permit_id = permit_info.permit_id
+    </select>
+
+    <!--根据 名称和id 查询角色-->
+    <select id="select_RoleByNameAndId"
+            parameterType="com.jaso.admin.bean.Role"
+            resultMap="roleMapEx">
+        SELECT
+
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+
+        FROM role_info, role_permit, permit_info
+
+        WHERE role_info.role_name = #{value}
+
+        and role_info.role_id = role_permit.role_id
+        and role_permit.permit_id = permit_info.permit_id
+    </select>
+
+    <!--根据 roleId 删除 role_permit 关系-->
+    <delete id="deleteRoleToPermit"
+            parameterType="int">
+        DELETE FROM role_permit WHERE role_id = #{role_id}
+    </delete>
+
+    <!--添加role_permit关系-->
+    <insert id="insertRoleToPermit"
+            parameterType="int">
+        INSERT INTO role_permit VALUES (#{role_id},#{permit_id})
+    </insert>
+
+    <!--添加角色-->
+    <insert id="addRole"
+            parameterType="com.jaso.admin.bean.Role">
+        INSERT INTO role_info(role_name, des) VALUES (#{role_name}, #{des})
+    </insert>
+
+    <!--根据id删除角色-->
+    <delete id="deleteRoleById"
+            parameterType="int">
+        DELETE FROM role_info WHERE role_id = #{role_id}
+    </delete>
+
+    <select id="select_RoleByNameNoPermit"
+            parameterType="java.lang.String"
+            resultType="com.jaso.admin.bean.Role">
+        SELECT * FROM role_info WHERE role_name = #{value}
+    </select>
+
+
+</mapper>

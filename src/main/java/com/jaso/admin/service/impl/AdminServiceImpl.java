@@ -1,8 +1,12 @@
 package com.jaso.admin.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.jaso.admin.bean.Admin;
+import com.jaso.admin.bean.Role;
 import com.jaso.admin.mapper.AdminMapper;
 import com.jaso.admin.service.AdminService;
+import com.jaso.base.bean.IP;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -43,8 +47,6 @@ public class AdminServiceImpl implements AdminService {
      */
     @Override
     public Admin select_adminByLoginNameAndPwd(Admin admin) {
-//        List<Admin> admins = adminMapper.select_adminByLoginNameAndPwd(admin);
-//        return admins!= null && admins.size()>0?admins.get(0):null;
         return adminMapper.select_adminByLoginNameAndPwd(admin);
     }
 
@@ -56,5 +58,36 @@ public class AdminServiceImpl implements AdminService {
     @Override
     public void updateByEmail(String email) {
         adminMapper.updateByEmail(email);
+    }
+
+    /**
+     * 添加 IP 对象
+     */
+    @Override
+    public void insertIP(IP ip) {
+        adminMapper.insert_IP(ip);
+    }
+
+    /**
+     * 根据 IP地址查询
+     */
+    @Override
+    public IP select_IPByName(String ip_name) {
+        return adminMapper.select_IPByName(ip_name);
+    }
+
+    @Override
+    public void updata_IPLoginAc(IP ip) {
+        adminMapper.update_IPLoginAcc(ip);
+    }
+
+    @Override
+    public List<Admin> select_allAdmin() {
+        return adminMapper.select_allAdmin();
+    }
+
+    @Override
+    public List<Admin> select_adminByRoleId(int role_id) {
+        return adminMapper.select_adminByRoleId(role_id);
     }
 }

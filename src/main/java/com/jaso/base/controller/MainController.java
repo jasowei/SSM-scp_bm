@@ -303,9 +303,13 @@ public class MainController {
         return "admin/admin-role";
     }
 
-    @RequestMapping(value = "admin-role-add")
-    public String adminRoleAdd() {
-        return "admin/admin-role-add";
+    @RequestMapping("admin-role-edit/{id}")
+    public String adminRoleEdit(@PathVariable int id, HttpSession session) {
+        System.out.println("角色id:  "+ id);
+
+        session.setAttribute("role_id", id);
+
+        return "admin/admin-role-edit";
     }
 
     @RequestMapping(value = "admin-list")
@@ -335,5 +339,9 @@ public class MainController {
         return "system/system-base";
     }
 
+    @RequestMapping("admin-role-add")
+    public String adminRoleAdd() {
+        return "admin/admin-role-add";
+    }
 
 }
