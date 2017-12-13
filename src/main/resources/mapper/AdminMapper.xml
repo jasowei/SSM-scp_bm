@@ -186,4 +186,11 @@
             parameterType="int">
         INSERT INTO admin_role VALUES (#{admin_id}, #{role_id})
     </insert>
+
+    <select id="select_adminByTel"
+            parameterType="java.lang.String"
+            resultType="com.jaso.admin.bean.Admin">
+        SELECT * FROM admin_info WHERE telephone = #{value}
+    </select>
+
 </mapper>

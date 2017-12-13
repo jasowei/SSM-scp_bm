@@ -53,4 +53,6 @@ public interface AdminMapper {
     Admin findByEmail(String email);
 
     void updateByEmail(String email);
+
+    Admin select_adminByTel(String telephone);
 }

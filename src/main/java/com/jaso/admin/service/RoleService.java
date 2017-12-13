@@ -87,4 +87,5 @@ public interface RoleService {
      */
     void deleteRoleMore(String roleId);
 
+    List<Role> select_allRoles();
 }

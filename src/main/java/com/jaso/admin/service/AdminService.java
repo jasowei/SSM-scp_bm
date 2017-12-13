@@ -45,4 +45,8 @@ public interface AdminService {
     PageInfo<Admin> select_allAdmin(Integer pageNum, Integer pageSize);
 
     List<Admin> select_adminByRoleId(int role_id);
+
+    List<Admin> search(String keyWord);
+
+    Admin select_adminByTel(String telephone);
 }

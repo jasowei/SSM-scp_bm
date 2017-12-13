@@ -138,4 +138,9 @@ public class RoleServiceImpl implements RoleService {
             }
         }
     }
+
+    @Override
+    public List<Role> select_allRoles() {
+        return roleMapper.select_allRole();
+    }
 }

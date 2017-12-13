@@ -48,10 +48,10 @@
 				var ip = result.resultData;
 				if (result.status){
 					$("#ip").html("上次登录IP："+ ip.ip_name +"    上次登录时间：" + new Date(parseInt(ip.login_date)).toLocaleString());
-					$("#account").html("登录次数：" + ip.login_account)
+					$("#account").html("IP登录次数：" + ip.login_account)
 				}else {
 					$("#ip").html("初来匝道  登录IP："+ ip.ip_name);
-					$("#account").html("登录次数：1")
+					$("#account").html("IP登录次数：1")
 				}
 			}
 		})

@@ -319,6 +319,11 @@ public class MainController {
         return "admin/admin-add";
     }
 
+    @RequestMapping(value = "admin-edit")
+    public String adminEdit() {
+        return "admin/admin-edit";
+    }
+
     @RequestMapping(value = "menu")
     public String menu() {
         return "admin/menu";
