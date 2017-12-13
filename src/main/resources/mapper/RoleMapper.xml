@@ -132,5 +132,10 @@
         SELECT * FROM role_info WHERE role_name = #{value}
     </select>
 
+    <delete id="deleteAdminToRole"
+            parameterType="int">
+        DELETE FROM admin_role WHERE role_id = #{role_id}
+    </delete>
+
 
 </mapper>

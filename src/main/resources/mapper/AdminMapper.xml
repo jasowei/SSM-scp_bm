@@ -55,9 +55,17 @@
     <!--根据id查询-->
     <select id="select_adminById"
             parameterType="int"
-            resultType="com.jaso.admin.bean.Admin">
-        SELECT * FROM admin_info WHERE admin_id = #{value}
-
+            resultMap="adminMapEx">
+        SELECT
+        <include refid="adminSql"/>,
+        <include refid="roleSql"/>,
+        <include refid="permitSql"/>
+        FROM admin_info , admin_role, role_info, role_permit, permit_info
+        WHERE admin_info.admin_id = #{value}
+        AND admin_info.admin_id = admin_role.admin_id
+        and admin_role.role_id = role_info.role_id
+        and role_info.role_id = role_permit.role_id
+        AND role_permit.permit_id = permit_info.permit_id;
     </select>
 
     <!--根据登录名查询-->
@@ -148,6 +156,10 @@
         and admin_role.role_id = role_info.role_id
         and role_info.role_id = role_permit.role_id
         AND role_permit.permit_id = permit_info.permit_id;
+    </select>
+    <select id="select_allAdminNoRole"
+            resultType="com.jaso.admin.bean.Admin">
+        SELECT * FROM admin_info
     </select>
 
     <!--根据角色id查询有该角色的用户-->

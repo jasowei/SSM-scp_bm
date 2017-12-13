@@ -238,12 +238,12 @@ public class AdminController {
     /**
      * 查询所有的用户
      */
-//    @ResponseBody
-//    @RequestMapping("/showAdminList")
-//    public PageInfo<Admin> showAdminList(Integer pageNum, Integer pageSize) {
-//        PageInfo<Admin> roles = adminService.select_allAdmin(pageNum, pageSize);
-//        return roles;
-//    }
+    @ResponseBody
+    @RequestMapping("/showAdminList")
+    public PageInfo<Admin> showAdminList(Integer pageNum, Integer pageSize) {
+        PageInfo<Admin> admins = adminService.select_allAdmin(pageNum, pageSize);
+        return admins;
+    }
 
     /**
      * 查询权限
@@ -306,10 +306,7 @@ public class AdminController {
     public AjaxResult getRole(int role_id) {
         ajaxResult = new AjaxResult<Role>();
 
-        System.out.println(role_id);
-
         Role role = roleService.select_RoleById(role_id);
-        System.out.println(role);
 
         if (role == null) {
             ajaxResult.setStatus(false);
@@ -327,28 +324,13 @@ public class AdminController {
     @RequestMapping("/checkRoleName")
     public AjaxResult checkRoleName(String role_name, int role_id) {
         ajaxResult = new AjaxResult<Role>();
-        System.out.println(role_name);
-        System.out.println(role_id);
-
-        if (role_id == 0) {
-            Role role = roleService.select_RoleByNameNoPermit(role_name);
-            if (null != role) {
-                ajaxResult.setStatus(false);
-                ajaxResult.setMessage("该角色名已被占用");
-            }
-            ajaxResult.setResultData(role);
-
-        } else {
-            Role role = new Role();
-            role.setRole_name(role_name);
-            role.setRole_id(role_id);
-            Role role1 = roleService.select_RoleByNameAndId(role);
-            if (role1 != null) {
-                ajaxResult.setStatus(false);
-                ajaxResult.setMessage("该角色名已被占用");
-            }
-            ajaxResult.setResultData(role);
+        // id为0则是添加界面的验证 , id 不为 0 , 编辑界面的验证
+        Role role = roleService.select_RoleByNameNoPermit(role_name);
+        if ((null != role && role_id == 0) || (role != null && role.getRole_id() != role_id)) {
+            ajaxResult.setStatus(false);
+            ajaxResult.setMessage("该角色名已被占用");
         }
+        ajaxResult.setResultData(role);
         return ajaxResult;
     }
 
@@ -372,13 +354,11 @@ public class AdminController {
     @RequestMapping("/roleAdd")
     public AjaxResult roleAdd(Role role, String permit) {
         ajaxResult = new AjaxResult<Role>();
-        System.out.println(role);
-        System.out.println(permit);
         Role role1 = roleService.select_RoleByNameNoPermit(role.getRole_name());
         if (role1 == null) {
             roleService.addRole(role, permit);
         } else {
-            ajaxResult.setMessage("添加失败, 给用户名已被占用");
+            ajaxResult.setMessage("添加失败, 给角色名已被占用");
             ajaxResult.setStatus(false);
         }
         return ajaxResult;
@@ -391,7 +371,12 @@ public class AdminController {
     @RequestMapping("/deleteRole")
     public AjaxResult deleteRole(int role_id) {
         ajaxResult = new AjaxResult();
-
+        // 不能删除超级管理员
+        if (role_id == 1) {
+            ajaxResult.setMessage("没有权限删除该角色");
+            ajaxResult.setStatus(false);
+            return ajaxResult;
+        }
         roleService.deleteRoleById(role_id);
 
         return ajaxResult;
@@ -404,7 +389,7 @@ public class AdminController {
     @RequestMapping("/deleteMore")
     public AjaxResult deleteMore(String roleId) {
         ajaxResult = new AjaxResult();
-
+        // 要删除的id串不能为空
         if (null == roleId) {
             ajaxResult.setMessage("至少选择一条数据");
             ajaxResult.setStatus(false);
@@ -423,6 +408,20 @@ public class AdminController {
     @RequestMapping("/getAdminAccount")
     public Integer getAdminAccount() {
         return adminService.select_allAdmin().size();
+    }
+
+    /**
+     *  获取Admin的角色
+     */
+    @ResponseBody
+    @RequestMapping("/getAdminRoles")
+    public AjaxResult getAdminRoles(int admin_id){
+        ajaxResult = new AjaxResult<Admin>();
+
+        Admin admin = adminService.select_adminById(admin_id);
+        ajaxResult.setResultData(admin);
+
+        return ajaxResult;
     }
 
 }

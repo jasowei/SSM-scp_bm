@@ -112,6 +112,7 @@ public class RoleServiceImpl implements RoleService {
     public void deleteRoleById(int role_id) {
         roleMapper.deleteRoleById(role_id);
         roleMapper.deleteRoleToPermit(role_id);
+        roleMapper.deleteAdminToRole(role_id);
     }
 
     @Override
@@ -129,8 +130,11 @@ public class RoleServiceImpl implements RoleService {
         for (String s : roleId.split(",")) {
             if (!s.equals("")){
                 int role_id = Integer.parseInt(s);
-                deleteRoleById(role_id);
-                deleteRoleToPermit(role_id);
+                if (role_id != 1){
+                    roleMapper.deleteRoleById(role_id);
+                    roleMapper.deleteRoleToPermit(role_id);
+                    roleMapper.deleteAdminToRole(role_id);
+                }
             }
         }
     }

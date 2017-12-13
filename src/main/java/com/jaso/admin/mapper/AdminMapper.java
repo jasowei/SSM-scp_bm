@@ -44,6 +44,7 @@ public interface AdminMapper {
      * 查询所有用户
      */
     List<Admin> select_allAdmin();
+    List<Admin> select_allAdminNoRole();
 
     List<Admin> select_adminByRoleId(int role_id);
 

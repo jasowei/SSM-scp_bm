@@ -65,4 +65,9 @@ public interface RoleMapper {
      * 根据 角色名 查询, 不带权限
      */
     Role select_RoleByNameNoPermit(String role_name);
+
+    /**
+     * 根据角色id删除Admin_role
+     */
+    void deleteAdminToRole(int role_id);
 }

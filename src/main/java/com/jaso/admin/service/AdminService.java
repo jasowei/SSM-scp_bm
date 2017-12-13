@@ -1,5 +1,6 @@
 package com.jaso.admin.service;
 
+import com.github.pagehelper.PageInfo;
 import com.jaso.admin.bean.Admin;
 import com.jaso.base.bean.IP;
 
@@ -41,6 +42,7 @@ public interface AdminService {
      * 查询所有的用户
      */
     List<Admin> select_allAdmin();
+    PageInfo<Admin> select_allAdmin(Integer pageNum, Integer pageSize);
 
     List<Admin> select_adminByRoleId(int role_id);
 }

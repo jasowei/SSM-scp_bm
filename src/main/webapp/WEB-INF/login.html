@@ -51,7 +51,7 @@
                     <input id="code" class="input-text size-L" type="text" placeholder="验证码"
                            style="width:150px;">
                     <img id="verifyCodeImage" src="/getVerifyCode" alt="验证码"
-                         title="验证码图片"/>
+                         title="验证码图片" onclick="changeImage()"/>
                     <a onclick="changeImage()" style="color:white;">看不清，换一张</a>
                 </div>
             </div>
@@ -146,6 +146,7 @@
             },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
                 layer.msg('error-login!', {icon: 2, time: 3000});
+                submit();
             }
         })
     })

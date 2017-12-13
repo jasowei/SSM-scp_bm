@@ -87,6 +87,16 @@ public class AdminServiceImpl implements AdminService {
     }
 
     @Override
+    public PageInfo<Admin> select_allAdmin(Integer pageNum, Integer pageSize) {
+
+        PageHelper.startPage(pageNum, pageSize);
+        List<Admin> admins = adminMapper.select_allAdminNoRole();
+        PageInfo<Admin> pageInfo = new PageInfo<Admin>(admins);
+
+        return pageInfo;
+    }
+
+    @Override
     public List<Admin> select_adminByRoleId(int role_id) {
         return adminMapper.select_adminByRoleId(role_id);
     }

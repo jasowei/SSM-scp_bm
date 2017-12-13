@@ -304,12 +304,8 @@ public class MainController {
         return "admin/admin-role";
     }
 
-    @RequestMapping("admin-role-edit/{id}")
-    public String adminRoleEdit(@PathVariable int id, HttpSession session) {
-        System.out.println("角色id:  "+ id);
-
-        session.setAttribute("role_id", id);
-
+    @RequestMapping("admin-role-edit")
+    public String adminRoleEdit() {
         return "admin/admin-role-edit";
     }
 

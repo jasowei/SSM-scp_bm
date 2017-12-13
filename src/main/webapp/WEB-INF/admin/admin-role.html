@@ -102,7 +102,8 @@
     }
     /*管理员-角色-编辑*/
     function admin_role_edit(id, w, h) {
-        layer_show("角色编辑", "admin-role-edit/" + id, w, h);
+        $.cookie("roleId", id);
+        layer_show("角色编辑", "admin-role-edit.html", w, h);
     }
     /*管理员-角色-删除*/
     function admin_role_del(obj, id) {
@@ -114,8 +115,13 @@
                     role_id: id
                 },
                 success: function (result) {
-                    $(obj).parents("tr").remove();
-                    layer.msg('已删除!', {icon: 1, time: 1000});
+                    if (result.status){
+                        $(obj).parents("tr").remove();
+                        layer.msg('已删除!', {icon: 1, time: 1000});
+                    }else {
+                        layer.msg('error! ' + result.message, {icon: 2, time: 3000});
+                    }
+
                 },
                 error: function (result) {
                     console.log(data.msg);

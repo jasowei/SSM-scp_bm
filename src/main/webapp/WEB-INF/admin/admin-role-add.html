@@ -40,7 +40,7 @@
         <div class="row cl">
             <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>角色名称：</label>
             <div class="formControls col-xs-8 col-sm-9">
-                <input type="text" class="input-text" value="" placeholder="" id="role_name" name="roleName" onblur="checkName()">
+                <input type="text" class="input-text" value="" placeholder="" id="role_name" name="roleName" onblur="checkName();">
             </div>
         </div>
         <div class="row cl">
@@ -159,7 +159,8 @@
             type:"post",
             url: "/checkRoleName",
             data:{
-                role_name:$("#role_name").val()
+                role_name:$("#role_name").val(),
+                role_id: 0
             },
             success:function (result) {
                 if (result.status == true){
@@ -180,13 +181,12 @@
         }
         var a = "";
         $("input[type='checkbox']:checked").each(function () {
-            a += $(this).attr("id") + ",";
+            a += $(this).attr("value") + ",";
         });
         if (a == "") {
             layer.msg('至少选择一个权限',{icon:2,time:3000});
             return false;
         }
-
         $.ajax({
             type: "post",
             url: "/roleAdd",

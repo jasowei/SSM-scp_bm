@@ -161,6 +161,9 @@
         $.ajax({
             type: "post",
             url: "/getRole",
+            data:{
+                role_id:$.cookie("roleId")
+            },
             success: function (obj) {
                 var role = obj.resultData;
                 if (obj.status) {
@@ -188,7 +191,8 @@
             type:"post",
             url: "/checkRoleName",
             data:{
-                role_name:$("#role_name").val()
+                role_name:$("#role_name").val(),
+                role_id:$("#role_id").val()
             },
             success:function (result) {
                 if (result.status == true){
