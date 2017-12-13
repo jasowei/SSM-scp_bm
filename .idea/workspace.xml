@@ -2,23 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c1137a23-f33d-4393-aaf1-15bac4d456af" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/lusence/Index.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/lusence/Search.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/test/MTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-edit.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/mapper/AdminMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/AdminService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/AdminService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/RoleService.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/RoleService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/AdminServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/AdminServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/service/impl/RoleServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/AdminMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdminMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-add.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-list.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/welcome.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/welcome.html" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -131,7 +115,7 @@
       <file leaf-file-name="admin-add.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-add.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2466">
+            <state relative-caret-position="2394">
               <caret line="190" column="39" selection-start-line="190" selection-start-column="39" selection-end-line="190" selection-end-column="39" />
               <folding />
             </state>
@@ -1419,7 +1403,7 @@
       <workItem from="1513040345682" duration="6497000" />
       <workItem from="1513048164710" duration="10604000" />
       <workItem from="1513079892692" duration="6665000" />
-      <workItem from="1513122961622" duration="36968000" />
+      <workItem from="1513122961622" duration="37036000" />
     </task>
     <task id="LOCAL-00001" summary="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO">
       <created>1513049985351</created>
@@ -1449,7 +1433,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513125226056</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="shiro搜索&#10;&#10;2017年12月13日21:13:31&#10;&#10;Mxg">
+      <created>1513170832280</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1513170832281</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1485,7 +1476,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60734000" />
+    <option name="totallyTimeSpent" value="60802000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="145" y="33" width="1642" height="984" extended-state="0" />
@@ -1590,7 +1581,8 @@
     <MESSAGE value="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO" />
     <MESSAGE value="第二次合并&#10;&#10;补充&#10;&#10;2017年12月12日18:39:39&#10;JASO" />
     <MESSAGE value="修复角色删除的bug, &#10;删除不能删除管理员&#10;&#10;2017年12月13日08:33:25&#10;&#10;JASO" />
-    <option name="LAST_COMMIT_MESSAGE" value="修复角色删除的bug, &#10;删除不能删除管理员&#10;&#10;2017年12月13日08:33:25&#10;&#10;JASO" />
+    <MESSAGE value="shiro搜索&#10;&#10;2017年12月13日21:13:31&#10;&#10;Mxg" />
+    <option name="LAST_COMMIT_MESSAGE" value="shiro搜索&#10;&#10;2017年12月13日21:13:31&#10;&#10;Mxg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2144,7 +2136,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-add.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2466">
+        <state relative-caret-position="2394">
           <caret line="190" column="39" selection-start-line="190" selection-start-column="39" selection-end-line="190" selection-end-column="39" />
           <folding />
         </state>
