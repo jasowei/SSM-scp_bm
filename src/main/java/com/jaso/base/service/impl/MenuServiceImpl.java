@@ -24,39 +24,28 @@ public class MenuServiceImpl implements MenuService {
     Search s = new Search();
 
 
-    public PageInfo<Menu> select_allmenu(Integer pageNum, Integer pageSize,String search) {
+    public PageInfo<Menu> select_allmenu(Integer pageNum, Integer pageSize) {
 
         pageNum = pageNum == null ? 1 : pageNum;
         pageSize = pageSize == null ? 5 : pageSize;
         PageHelper.startPage(pageNum, pageSize);
-//        List<Menu> all = menuMapper.findAll();
 
-        List<Menu> all = new ArrayList<Menu>();
-        if (search.trim().equals("")) {
-            all = menuMapper.findAll();
-        } else {
-            List<String> strings = s.search(search);
-            for (String string : strings) {
-                all.add(menuMapper.select_menuByName(string));
-            }
-        }
+        List<Menu> all = menuMapper.findAll();
 
         PageInfo<Menu> pageInfo = new PageInfo<Menu>(all);
         return pageInfo;
     }
-//    @Override
-//    public List<Menu> searchMenu(String search) {
-//        List<Menu> all = new ArrayList<Menu>();
-//        if (search.trim().equals("")) {
-//            all = menuMapper.findAll();
-//        } else {
-//            List<String> strings = s.search(search);
-//            for (String string : strings) {
-//                all.add(menuMapper.select_menuByName(string));
-//            }
-//        }
-//        return all;
-//    }
+    @Override
+    public List<Menu> searchMenu(String search) {
+        List<Menu> all = new ArrayList<Menu>();
+
+            List<String> strings = s.search(search);
+            for (String string : strings) {
+                all.add(menuMapper.select_menuByName(string));
+            }
+
+        return all;
+    }
 
 
     public Menu select_menuById(Integer id) {

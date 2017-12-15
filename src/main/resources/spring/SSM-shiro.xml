@@ -40,7 +40,7 @@
                 /sendEmail = anon
 
                 <!--authc : 需要认证才可以访问-->
-                /loginAdmin = authc
+                 /loginAdmin = authc
                 /index = authc
 
                 <!--退出-->

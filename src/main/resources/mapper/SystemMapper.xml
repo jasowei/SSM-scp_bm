@@ -1,10 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-        <mapper namespace="com.jaso.system.mapper.SystemMapper">
+<mapper namespace="com.jaso.system.mapper.SystemMapper">
 
+    <update id="bind" parameterType="com.jaso.admin.bean.Admin">
+        UPDATE admin_info set title_url = #{title_url} where admin_id=#{admin_id};
+    </update>
 
+    <select id="bindState" parameterType="int" resultType="java.lang.String">
+                SELECT title_url FROM  admin_info WHERE admin_id=#{value};
+    </select>
 
+    <update id="ediAdmin" parameterType="com.jaso.admin.bean.Admin">
+        UPDATE admin_info set real_name=#{real_name},gender=#{gender},telephone=#{telephone},email=#{email},address=#{address}  where login_name=#{login_name};
+    </update>
+
+    <update id="modifyPWD" parameterType="com.jaso.admin.bean.Admin">
+        UPDATE admin_info SET password=#{password} WHERE login_name=#{login_name}
+            </update>
 
 
 </mapper>

@@ -86,8 +86,8 @@
             <dt><i class="Hui-iconfont">&#xe616;</i>业主管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="" data-title="业主信息" href="javascript:void(0)">业主信息</a></li>
-                    <li><a data-href="" data-title="住房资料" href="javascript:void(0)">住房资料</a></li>
+                    <li><a data-href="codeing" data-title="业主信息" href="javascript:void(0)">业主信息</a></li>
+                    <li><a data-href="codeing" data-title="住房资料" href="javascript:void(0)">住房资料</a></li>
                 </ul>
             </dd>
         </dl>
@@ -95,7 +95,7 @@
             <dt><i class="Hui-iconfont">&#xe613;</i> 费用管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="" data-title="物业收费" href="javascript:void(0)">物业收费</a></li>
+                    <li><a data-href="codeing" data-title="物业收费" href="javascript:void(0)">物业收费</a></li>
                 </ul>
             </dd>
         </dl>
@@ -103,8 +103,8 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 物业服务<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="" data-title="投诉信息" href="javascript:void(0)">投诉信息</a></li>
-                    <li><a data-href="" data-title="业主报修" href="javascript:void(0)">业主报修</a></li>
+                    <li><a data-href="codeing" data-title="投诉信息" href="javascript:void(0)">投诉信息</a></li>
+                    <li><a data-href="codeing" data-title="业主报修" href="javascript:void(0)">业主报修</a></li>
                     <li><a data-href="" data-title="公告" href="javascript:void(0)">公告</a></li>
                 </ul>
             </dd>
@@ -113,8 +113,8 @@
             <dt><i class="Hui-iconfont">&#xe62e;</i> 系统管理<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="" data-title="基本设置" href="javascript:void(0)">基本设置</a></li>
-                    <li><a data-href="system-base" data-title="修改密码" href="javascript:void(0)">修改密码</a></li>
+                    <li><a data-href="picture-add" data-title="基本设置" href="javascript:void(0)">基本设置</a></li>
+                    <li><a data-href="system-base" data-title="个人设置" href="javascript:void(0)">个人设置</a></li>
                 </ul>
             </dd>
         </dl>
@@ -153,135 +153,158 @@
         <li id="closeall">关闭全部</li>
     </ul>
 </div>
+
+
 <!--_footer 作为公共模版分离出去-->
-<script type="text/javascript" src="/resources/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/resources/jquery-3.2.1.min.js"></script>
 <script type="text/javascript" src="/resources/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
 <script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
 <!--/_footer 作为公共模版分离出去-->
 
 <!--请在下方写此页面业务相关的脚本-->
-<script type="text/javascript" src="/resources/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>
+<!--<script type="text/javascript" src="/resources/lib/jquery.contextmenu/jquery.contextmenu.r2.js"></script>-->
 
 <script type="text/javascript">
 
+    $(document).ready(function () {
 
-    /*个人信息*/
 
-    function myselfinfo() {
+        /*个人信息*/
 
-        $.ajax({
-            type: "post",
-            url: "selectAdminById",
-            data: {
-                id: $.cookie("adminId")
+        function myselfinfo() {
 
-            },
-            success: function (rusult) {
-                layer.open({
-                    type: 1,
-                    area: ['400px', '300px'],
-                    fix: false, //不固定
-                    maxmin: true,
-                    shade: 0.4,
-                    title: '管理员信息',
-                    content: '<p>真实姓名 : ' + rusult.real_name + '</p>' +
-                    '<p>性别 : ' + rusult.gender + '</p>' +
-                    '<p>电话 : ' + rusult.telephone + '</p>' +
-                    '<p>地址 : ' + rusult.address + '</p>' +
-                    '<p>email : ' + rusult.email + '</p>'
-                });
-            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
-                layer.msg('error!', {icon: 2, time: 3000});
-            }
+            $.ajax({
+                type: "post",
+                url: "selectAdminById",
+                data: {
+                    id: $.cookie("adminId")
 
-        });
-
-    }
-
-    /*登录信息*/
-    showAdmin();
-    function showAdmin() {
-        $.ajax({
-            type: "post",
-            url: "/showAdmin",
-            data: {
-                "login_name": $.cookie("login_name"),
-                "password": $.cookie("password")
-            },
-            success: function (rusult) {
-
-                $.cookie("adminId", rusult.resultData.admin_id);
-
-                var role = "";
-                var roles = rusult.resultData.roles;
-
-                $.each(roles, function (i, r) {
-                    role += r.role_name + " ";
-                });
-
-                if (rusult.status) {
-                    $("#roles").html("<li><a href='#'>" + role + "</a></li>");
-                    $("#role_name").html(roles.length > 0 ? roles[0].role_name : role);
-                    $("#login_name").html(rusult.resultData.login_name);
+                },
+                success: function (rusult) {
+                    layer.open({
+                        type: 1,
+                        area: ['400px', '300px'],
+                        fix: false, //不固定
+                        maxmin: true,
+                        shade: 0.4,
+                        title: '管理员信息',
+                        content: '<p>真实姓名 : ' + rusult.real_name + '</p>' +
+                        '<p>性别 : ' + rusult.gender + '</p>' +
+                        '<p>电话 : ' + rusult.telephone + '</p>' +
+                        '<p>地址 : ' + rusult.address + '</p>' +
+                        '<p>email : ' + rusult.email + '</p>'
+                    });
+                }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    layer.msg('error!', {icon: 2, time: 3000});
                 }
-            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
-                layer.msg('error!', {icon: 2, time: 3000});
-            }
-        })
-    }
 
-    /*菜单显示*/
-//    showMenu();
-    function showMenu() {
-        $.ajax({
-            type: "post",
-            url: "/showMenu",
-            success: function (rusult) {
-                $("#tab").html("");
-                $.each(rusult, function (i, menu) {
-                    add(menu);
-                });
+            });
 
-            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
-                layer.msg('error!', {icon: 2, time: 3000});
-            }
-        })
-    }
+        }
 
-    function add(menu) {
-        var dl = $("<dl id='" + menu.menu_id + "'></dl>");
-        var dt = $("<dt><i class='Hui-iconfont'>" + menu.icon + "</i>" + menu.menu_name + "" +
-                "<i class='Hui-iconfont menu_dropdown-arrow'>&#xe6d5;</i></dt>");
-        var dd = $("<dd></dd>");
-        var ul=$("<ul></ul>");
-        //查子标签
-        $.ajax({
-            url: "/sonMenu",
-            type: "get",
-            data: {
-                id: menu.menu_id
-            },
-            success: function (data) {
-                $.each(data, function (i, m) {
-                    var li =
-                            $("<li><a data-href='" + m.url + "' data-title='" + m.menu_name + "' href='javascript:void(0)'>" + m.menu_name + "</a></li>")
-                    ul.append(li);
-                });
-                dd.append(ul);
+        /*登录信息*/
+        showAdmin();
+        function showAdmin() {
+            $.ajax({
+                type: "post",
+                url: "/showAdmin",
+                data: {
+                    "login_name": $.cookie("login_name"),
+                    "password": $.cookie("password")
+                },
+                success: function (rusult) {
 
-            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
-                layer.msg('error!', {icon: 2, time: 3000});
-            }
-        });
+                    $.cookie("adminId", rusult.resultData.admin_id);
 
-        dl.append(dt).append(dd);
-        $("#tab").append(dl);
-    }
+                    var role = "";
+                    var roles = rusult.resultData.roles;
+
+                    $.each(roles, function (i, r) {
+                        role += r.role_name + " ";
+                    });
+
+                    if (rusult.status) {
+                        $("#roles").html("<li><a href='#'>" + role + "</a></li>");
+                        $("#role_name").html(roles.length > 0 ? roles[0].role_name : role);
+                        $("#login_name").html(rusult.resultData.login_name);
+                    }
+                }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    layer.msg('error!', {icon: 2, time: 3000});
+                }
+            })
+        }
+
+        /*菜单显示*/
+//        showMenu();
+//        function showMenu() {
+//            $.ajax({
+//                type: "post",
+//                url: "/showMenu",
+//                success: function (rusult) {
+////                    $("#tab").html("");
+//
+//
+//                    $("#13").hide();
+//
+//
+////                    $.each(rusult, function (i, menu) {
+////                        add(menu);
+////                    });
+//
+//                }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+//                    layer.msg('error!', {icon: 2, time: 3000});
+//                }
+//            })
+//        }
+
+//        add(null);
+
+
+//        function add(menu) {
+//        var dl = $("<dl id='" + menu.menu_id + "'></dl>");
+//        var dt = $("<dt class=''><i class='Hui-iconfont'>" + menu.icon + "</i>" + menu.menu_name + "" +
+//                "<i class='Hui-iconfont menu_dropdown-arrow'>&#xe6d5;</i></dt>");
+//        var dd = $("<dd style='display: none'></dd>");
+//        var ul=$("<ul></ul>");
+//        //查子标签
+//        $.ajax({
+//            url: "/sonMenu",
+//            type: "get",
+//            data: {
+//                id: menu.menu_id
+//            },
+//            success: function (data) {
+//                $.each(data, function (i, m) {
+//                    var li =
+//                            $("<li><a data-href='" + m.url + "' data-title='" + m.menu_name + "' href='javascript:void(0)'>" + m.menu_name + "</a></li>")
+//                    ul.append(li);
+//                });
+//                dd.append(ul);
+//
+//            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+//                layer.msg('error!', {icon: 2, time: 3000});
+//            }
+//        });
+
+//            var id = "13";
+//            var name = "caill";
+//
+//            var ss = '<dl id=' + id + '><dt><i class="Hui-iconfont">&#xe62d;</i>' + name + '<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt><dd><ul><li><a>菜单管理</a></li></ul></dd></dl>';
+
+//        dl.append(dt).append(dd);
+//            $("#tab").append($(ss));
+
+//            var tab = document.getElementById("tab");
+//            tab.innerHTML=ss;
+//
+//        }
+
+
+    })
 
 
 </script>
-
 
 </body>
 </html>

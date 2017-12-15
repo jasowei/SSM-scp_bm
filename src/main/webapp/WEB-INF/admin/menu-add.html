@@ -85,7 +85,7 @@
             type: "post",
             async: false,
             success: function (result) {
-                var _html = "<option value='0'> ~~~ </option>";
+                var _html = "<option value='0'> ~根菜单~ </option>";
                 $.each(result,function (i,n) {
                     _html += '<option value=' + n.menu_id + ' >' + n.menu_name + '</option>';
 
