@@ -1,23 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c1137a23-f33d-4393-aaf1-15bac4d456af" name="Default" comment="添加依赖&#10;&#10;2017年12月18日12:50:57&#10;&#10;Mxg">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/SSM_Project_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/SSM_Project_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/SSM-Project.iml" afterPath="$PROJECT_DIR$/SSM-Project.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/controller/AdminController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/realm/MyRealm.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/realm/MyRealm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/admin/test/MainTest.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/admin/test/MainTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/com/jaso/base/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/AdminMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AdminMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" afterPath="$PROJECT_DIR$/src/main/resources/spring/SSM-shiro.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-role-add.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-role-add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-role.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/admin/admin-role.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/message/message-add.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/message/message-add.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/message/message-show.html" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/message/message-show.html" />
-    </list>
+    <list default="true" id="c1137a23-f33d-4393-aaf1-15bac4d456af" name="Default" comment="" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -286,8 +270,8 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="19" />
-    <option name="y" value="71" />
+    <option name="x" value="14" />
+    <option name="y" value="39" />
     <option name="width" value="1728" />
     <option name="height" value="984" />
   </component>
@@ -1368,7 +1352,7 @@
       <workItem from="1513079892692" duration="6665000" />
       <workItem from="1513122961622" duration="37036000" />
       <workItem from="1513568136426" duration="6000" />
-      <workItem from="1513569163053" duration="11148000" />
+      <workItem from="1513569163053" duration="11188000" />
     </task>
     <task id="LOCAL-00001" summary="第二次合并&#10;&#10;修复&#10;&#10;2017年12月12日11:39:36&#10;JASO">
       <created>1513049985351</created>
@@ -1405,7 +1389,14 @@
       <option name="project" value="LOCAL" />
       <updated>1513170832281</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="终极版&#10;&#10;2017年12月18日16:40:21&#10;&#10;Mxg">
+      <created>1513586436390</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1513586436390</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1441,10 +1432,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="71956000" />
+    <option name="totallyTimeSpent" value="71996000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="19" y="71" width="1728" height="984" extended-state="0" />
+    <frame x="14" y="39" width="1728" height="984" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1547,7 +1538,8 @@
     <MESSAGE value="第二次合并&#10;&#10;补充&#10;&#10;2017年12月12日18:39:39&#10;JASO" />
     <MESSAGE value="修复角色删除的bug, &#10;删除不能删除管理员&#10;&#10;2017年12月13日08:33:25&#10;&#10;JASO" />
     <MESSAGE value="shiro搜索&#10;&#10;2017年12月13日21:13:31&#10;&#10;Mxg" />
-    <option name="LAST_COMMIT_MESSAGE" value="shiro搜索&#10;&#10;2017年12月13日21:13:31&#10;&#10;Mxg" />
+    <MESSAGE value="终极版&#10;&#10;2017年12月18日16:40:21&#10;&#10;Mxg" />
+    <option name="LAST_COMMIT_MESSAGE" value="终极版&#10;&#10;2017年12月18日16:40:21&#10;&#10;Mxg" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
