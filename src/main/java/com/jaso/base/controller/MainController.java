@@ -2,9 +2,14 @@ package com.jaso.base.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.jaso.admin.bean.Admin;
+import com.jaso.admin.exception.AdminExceptionResolver;
 import com.jaso.base.bean.Menu;
 import com.jaso.base.bean.MenuExt;
 import com.jaso.base.service.MenuService;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.apache.shiro.authz.annotation.RequiresRoles;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
@@ -44,7 +49,9 @@ public class MainController {
      * 主页
      */
     @RequestMapping(value = "index")
-    public String index() {
+    public String index(HttpServletRequest request) {
+
+
         return "index";
     }
 
@@ -65,30 +72,36 @@ public class MainController {
      *
      * @return
      */
+
     @ResponseBody
     @RequestMapping(value = "allMenu")
     public PageInfo<Menu> allMenu(@RequestParam("pageNum") Integer pageNum,
-                                  @RequestParam("pageSize") Integer pageSize,
-                                  @RequestParam("search") String search) {
+                                  @RequestParam("pageSize") Integer pageSize) {
 
-        PageInfo<Menu> allMenu = menuService.select_allmenu(pageNum, pageSize,search);
-        System.out.println("<<<菜单界面>>>");
-        System.out.println("搜索结果 : "+allMenu.getList());
-        return allMenu;
+//        Subject subject = SecurityUtils.getSubject();
+//        if(subject.hasRole("超级管理员")) {
+            //有权限
+            PageInfo<Menu> allMenu = menuService.select_allmenu(pageNum, pageSize);
+            return allMenu;
+//        } else {
+//            //无权限
+//            System.out.println("无权限");
+//            return null;
+//        }
+
     }
 
-//    /**
-//     * 搜索
-//     */
-//    @ResponseBody
-//    @RequestMapping(value = "searchMenu")
-//    public MenuExt searchMenu(@RequestParam("search") String search){
-//        System.out.println("搜索输入 : " + search);
-//        List<Menu> menuList = menuService.searchMenu(search);
-//        MenuExt menuExt = new MenuExt(menuList,search);
-//        System.out.println("搜索结果 : "+menuList);
-//        return menuExt;
-//    }
+    /**
+     * 搜索
+     */
+    @ResponseBody
+    @RequestMapping(value = "searchMenu")
+    public MenuExt searchMenu(@RequestParam("search") String search){
+        System.out.println("搜索输入 : " + search);
+        List<Menu> menuList = menuService.searchMenu(search);
+        MenuExt menuExt = new MenuExt(menuList,search);
+        return menuExt;
+    }
 
 
     /**
@@ -211,6 +224,7 @@ public class MainController {
      *
      * @return
      */
+    @RequiresRoles("超级管理员")
     @RequestMapping(value = "menu-edi")
     public String menuEdi() {
         return "admin/menu-edi";
@@ -309,6 +323,11 @@ public class MainController {
         return "admin/admin-role-edit";
     }
 
+    @RequestMapping("admin-role-add")
+    public String adminRoleAdd() {
+        return "admin/admin-role-add";
+    }
+
     @RequestMapping(value = "admin-list")
     public String adminList() {
         return "admin/admin-list";
@@ -324,11 +343,13 @@ public class MainController {
         return "admin/admin-edit";
     }
 
+    @RequiresRoles("超级管理员")
     @RequestMapping(value = "menu")
     public String menu() {
         return "admin/menu";
     }
 
+    @RequiresRoles("超级管理员")
     @RequestMapping(value = "menu-add")
     public String menuAdd() {
         return "admin/menu-add";
@@ -341,9 +362,14 @@ public class MainController {
         return "system/system-base";
     }
 
-    @RequestMapping("admin-role-add")
-    public String adminRoleAdd() {
-        return "admin/admin-role-add";
+    @RequestMapping(value = "picture-add")
+    public String pictureAdd(){
+        return "system/picture-add";
     }
 
+    //----------none---------------
+    @RequestMapping(value = "codeing")
+    public String codeing(){
+        return "other/codeing";
+    }
 }

@@ -22,58 +22,75 @@
     <script>DD_belatedPNG.fix('*');</script>
     <![endif]-->
     <title>后台登录</title>
+
+    <!--bootstrap-->
+    <link rel="stylesheet" href="/resources/bs/css/bootstrap.css">
+    <script src="/resources/jquery-3.2.1.min.js"></script>
+    <script src="/resources/bs/js/bootstrap.js"></script>
+
     <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
     <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
 </head>
 
 <body>
+
+
 <input type="hidden" id="TenantId" name="TenantId" value=""/>
 
+
 <div class="header">
-    <span style="color: white;font-size: 36px">&nbsp;&nbsp;&nbsp;小区业主服务平台--后台管理系统</span>
+    <span style="color: white;font-size: 30px">&nbsp;&nbsp;&nbsp;小区业主服务平台--后台管理系统</span>
 </div>
 
 <div class="loginWraper">
-    <div id="loginform" class="loginBox" style="color:white;">
+    <div id="loginform" class="loginBox">
         <form class="form form-horizontal" action="" method="post">
             <div class="row cl">
-                <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input id="name" name="admin_name" type="text" placeholder="账户ID" class="input-text size-L">
+                <div class="formControls col-xs-8 col-xs-offset-3" style="text-align: center">
+                    <h3>后台系统-入口</h3>
                 </div>
             </div>
             <div class="row cl">
-                <div class="formControls col-xs-8 col-xs-offset-3">
+                <div class="formControls col-xs-8 col-xs-offset-3" style="text-align: center">
+                    <input id="name" name="admin_name" type="text" placeholder="System ID" class="input-text size-L">
                     <input id="password" name="" type="password" placeholder="密码" class="input-text size-L">
                 </div>
             </div>
             <div class="row cl">
-                <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input id="code" class="input-text size-L" type="text" placeholder="验证码"
-                           style="width:150px;">
-                    <img id="verifyCodeImage" src="/getVerifyCode" alt="验证码"
-                         title="验证码图片" onclick="changeImage()"/>
-                    <a onclick="changeImage()" style="color:white;">看不清，换一张</a>
+                <div class="formControls col-xs-8 col-xs-offset-3" style="text-align: right">
+
+                    <button class="btn btn-primary" type="button"
+                            data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Auth &nbsp;<span class="glyphicon glyphicon-circle-arrow-right" aria-hidden="true"></span>
+                    </button>
+                    <div class="collapse" id="collapseExample" style="text-align: center">
+                        <div class="well">
+                            <img id="verifyCodeImage" src="/getVerifyCode" alt="验证码"
+                                 title="验证码图片"/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <a onclick="changeImage()" style="color:#298db9;">看不清，换一张</a>
+                            <br>
+                            <br>
+                            <input id="code" class="input-text size-L" type="text" placeholder="请输入图片中内容:"
+                                   style="width:150px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <input id="submit" name="" type="button" class="btn btn-primary"
+                                   value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
+                        </div>
+                    </div>
+
                 </div>
             </div>
             <div class="row cl">
-                <div class="formControls col-xs-8 col-xs-offset-3">
-                    <label for="online">
-                        <input type="checkbox" name="online" id="online" value="">
-                        使我保持登录状态</label>
-                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <a onclick="popup()">忘记密码?</a>
+                <div class="formControls col-xs-8 col-xs-offset-3" style="text-align: center">
+                    <hr>
+                    <a onclick="popup()" style="color:#298db9;font-size: 16px">忘记密码?找回密码</a>
+                    <br>
+                    还没有此ID,<a href="#" style="color:#298db9;font-size: 14px">注册一个新的ID?</a>
                 </div>
             </div>
-            <div class="row cl">
-                <div class="formControls col-xs-8 col-xs-offset-3">
-                    <input id="submit" name="" type="button" class="btn btn-success radius size-L"
-                           value="&nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;">
-                    <input name="" type="reset" class="btn btn-default radius size-L"
-                           value="&nbsp;取&nbsp;&nbsp;&nbsp;&nbsp;消&nbsp;">
-                </div>
-            </div>
+
         </form>
     </div>
+
 </div>
 
 <div class="footer">Copyright JASO by SSM-Project</div>
@@ -117,6 +134,8 @@
             return false;
         }
 
+
+
         if (code == '') {
             layer.msg('验证码不能为空',{icon:2,time:3000});
             return false;
@@ -145,8 +164,7 @@
                 }
             },
             error: function (XmlHttpRequest, textStatus, errorThrown) {
-                layer.msg('error-login!', {icon: 2, time: 3000});
-                submit();
+                layer.msg('系统繁忙,请重新提交!', {icon: 0, time: 3000});
             }
         })
     })
@@ -157,12 +175,12 @@
         w2popup.open({
             width: 400,
             height: 300,
-            title: '{ 忘 记 密 码 }',
-            body: '<div class="w2ui-centered"><h2>是不是忘记密码了?</h2>' +
+            title: ' 忘 记 密 码 ',
+            body: '<div class="w2ui-centered"><h3>找回密码</h3>' +
             '<h4>通过您注册时使用的邮箱,验证找回密码.</h4>' +
             '<br><br><br>  <input id="email" type="text" class="width200"/></div>',
             buttons: '<button class="w2ui-btn" onclick="verifyEmail()">验证邮箱</button>' +
-            '<button class="w2ui-btn" onclick="w2popup.close();">我只是输入错误</button>',
+            '<button class="w2ui-btn" onclick="w2popup.close();">我还能想起来</button>',
             showMax: true
         });
     }
@@ -190,9 +208,8 @@
     }
 
     function popup1() {
-        w2popup.lock("loading...", true);
-        setTimeout(function () { w2popup.unlock(); }, 3000);
-        w2alert("新的初始密码正发送到您的邮箱...");
+        w2popup.lock("sending...", true);
+        setTimeout(function () { w2popup.unlock(); }, 20000);
         $.ajax({
             url: "sendEmail",
             type: "post",

@@ -2,170 +2,454 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-<meta charset="utf-8">
-<meta name="renderer" content="webkit|ie-comp|ie-stand">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
-<link rel="Bookmark" href="/resources/static/h-ui/images/favicon.ico" >
-<link rel="Shortcut Icon" href="/resources/static/h-ui/images/favicon.ico" />
-<!--[if lt IE 9]>
-<script type="text/javascript" src="/resources/lib/html5shiv.js"></script>
-<script type="text/javascript" src="/resources/lib/respond.min.js"></script>
-<![endif]-->
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui/css/H-ui.min.css" />
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/H-ui.admin.css" />
-<link rel="stylesheet" type="text/css" href="/resources/lib/Hui-iconfont/1.0.8/iconfont.css" />
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/skin/default/skin.css" id="skin" />
-<link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/style.css" />
-<!--[if IE 6]>
-<script type="text/javascript" src="/resources/lib/DD_belatedPNG_0.0.8a-min.js" ></script>
-<script>DD_belatedPNG.fix('*');</script>
-<![endif]-->
-<!--/meta 作为公共模版分离出去-->
-
-<title>基本设置</title>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="Bookmark" href="/resources/static/h-ui/images/favicon.ico">
+    <link rel="Shortcut Icon" href="/resources/static/h-ui/images/favicon.ico"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/resources/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/resources/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/lib/Hui-iconfont/1.0.8/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/skin/default/skin.css" id="skin"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/style.css"/>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/resources/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <!--/meta 作为公共模版分离出去-->
+    <link href="/resources/lib/webuploader/0.1.5/webuploader.css" rel="stylesheet" type="text/css"/>
+    <title>基本设置</title>
+    <style>
+        .tabCon a {
+            display: block;
+            margin-bottom: 20px;
+            border: 1px solid #d4d4d4;
+            border-radius: 6px;
+            line-height: 38px;
+            height: 38px;
+            font-size: 14px;
+            color: #666;
+            padding-left: 50px;
+            width: 155px;
+            background: 8px 0 no-repeat;
+        }
+    </style>
 </head>
 <body>
 <nav class="breadcrumb"><i class="Hui-iconfont">&#xe67f;</i> 首页
-	<span class="c-gray en">&gt;</span>
-	系统管理
-	<span class="c-gray en">&gt;</span>
-	基本设置
-	<a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px" href="javascript:location.replace(location.href);" title="刷新" ><i class="Hui-iconfont">&#xe68f;</i></a>
+    <span class="c-gray en">&gt;</span>
+    系统管理
+    <span class="c-gray en">&gt;</span>
+    基本设置
+    <a class="btn btn-success radius r" style="line-height:1.6em;margin-top:3px"
+       href="javascript:location.replace(location.href);" title="刷新"><i class="Hui-iconfont">&#xe68f;</i></a>
 </nav>
 <div class="page-container">
-	<form class="form form-horizontal" id="form-article-add">
-		<div id="tab-system" class="HuiTab">
-			<div class="tabBar cl">
-				<span>个人信息</span>
-				<span>密码修改</span>
-				<span>账号绑定</span>
-				<span>其他设置</span>
-			</div>
-			<!--1-->
-			<div class="tabCon">
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
-					<div id="login_name" class="formControls col-xs-8 col-sm-9">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="password" class="input-text" autocomplete="off"
-							   placeholder="真实姓名" id="real_name" name="real_name">
-					</div>
-				</div>
 
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
-					<div class="formControls col-xs-8 col-sm-9 skin-minimal">
-						<div class="radio-box">
-							<input name="sex" type="radio" id="sex-1" >
-							<label for="sex-1">男</label>
-						</div>
-						<div class="radio-box">
-							<input type="radio" id="sex-2" name="sex">
-							<label for="sex-2">女</label>
-						</div>
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" placeholder="phone number ~"
-							   id="telephone" name="telephone">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" placeholder="@" name="email" id="email">
-					</div>
-				</div>
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
-					<div class="formControls col-xs-8 col-sm-9">
-						<input type="text" class="input-text" placeholder="address~"
-							   name="address" id="address">
-					</div>
-				</div>
+    <div id="tab-system" class="HuiTab">
+        <div class="tabBar cl">
+            <span>个人信息</span>
+            <span>密码修改</span>
+            <span>账号绑定</span>
+        </div>
+        <!--1-->
+        <div class="tabCon">
+            <form class="form form-horizontal" id="form-article-add-1">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>管理员：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" readonly="readonly"
+                               id="login_name" name="login_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>姓名：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" autocomplete="off"
+                               placeholder="真实姓名" id="real_name" name="real_name">
+                    </div>
+                </div>
 
-				<div class="row cl">
-					<label class="form-label col-xs-4 col-sm-3">备注：</label>
-					<div class="formControls col-xs-8 col-sm-9">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>性别：</label>
+                    <div class="formControls col-xs-8 col-sm-9 skin-minimal">
+                        <div class="radio-box">
+                            <input name="gender" type="radio" id="sex-1" value="男">
+                            <label for="sex-1">男</label>
+                        </div>
+                        <div class="radio-box">
+                            <input type="radio" id="sex-2" name="gender" value="女">
+                            <label for="sex-2">女</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>手机：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="phone number ~"
+                               id="telephone" name="telephone">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>邮箱：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="@" name="email" id="email">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>地址：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" placeholder="address~"
+                               name="address" id="address">
+                    </div>
+                </div>
+
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3">备注：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
 						<textarea class="textarea" placeholder="说点什么吧..." dragonfly="true"
-								  onKeyUp="$.Huitextarealength(this,100)"></textarea>
-						<p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
-					</div>
-				</div>
-			</div>
-			<!--2-->
-			<div class="tabCon">
+                                  onKeyUp="$.Huitextarealength(this,100)"></textarea>
+                        <p class="textarea-numberbar"><em class="textarea-length">0</em>/100</p>
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <input class="btn btn-primary radius" type="submit"
+                               value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!--2-->
+        <div class="tabCon">
+            <form class="form form-horizontal" id="form-article-add-2">
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>账户：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="text" class="input-text" value="" readonly="readonly"
+                               id="login_name2" name="login_name">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>新密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off" placeholder="请设置6-10位密码"
+                               name="password" id="password">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <label class="form-label col-xs-4 col-sm-3"><span class="c-red">*</span>确认密码：</label>
+                    <div class="formControls col-xs-8 col-sm-9">
+                        <input type="password" class="input-text" autocomplete="off" placeholder="请重复输入"
+                               name="repassword" id="repassword">
+                    </div>
+                </div>
+                <div class="row cl">
+                    <div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+                        <button class="btn btn-primary radius" type="submit">
+                            <i class="Hui-iconfont">&#xe632;</i> 保存
+                        </button>
+                        <button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
 
-			</div>
-			<!--3-->
-			<div class="tabCon">
-				oping  soon  ~~~
-			</div>
-			<!--4-->
-			<div class="tabCon">
-				oping  soon  ~~~
-			</div>
-		</div>
-		<div class="row cl">
-			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
-				<button onClick="article_save_submit();" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存</button>
-				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
-			</div>
-		</div>
-	</form>
+        </div>
+        <!--3-->
+        <div class="tabCon">
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <h3>绑定社交账号:</h3>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <a onclick="bind('微博账号绑定',1)"
+                       data-type="wb" id="login-wb">微博账号绑定</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <a onclick="bind('QQ账号绑定',2)"
+                       data-type="qq" id="login-qq">QQ账号绑定</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <a onclick="bind('豆瓣账号绑定',3)"
+                       data-type="db" id="login-db">豆瓣账号绑定</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <a onclick="bind('人人账号绑定',4)"
+                       data-type="rr" id="login-rr">人人账号绑定</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <a onclick="bind('GitHub账号绑定',5)"
+                       data-type="git" id="login-git">GitHub账号绑定</a>
+                </div>
+            </div>
+            <div class="row cl">
+                <label class="form-label col-xs-4 col-sm-3"></label>
+                <div class="formControls col-xs-8 col-sm-9">
+                    <a onclick="bind('微信账号绑定',6)"
+                       data-type="wx" id="login-wx">微信账号绑定</a>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
 </div>
 
+<!--w2ui-->
+<link type="text/css" rel="stylesheet" href="/resources/w2ui-1.5.rc1/w2ui-1.5.rc1.css"/>
 <!--_footer 作为公共模版分离出去-->
 <script type="text/javascript" src="/resources/lib/jquery/1.9.1/jquery.min.js"></script>
 <script type="text/javascript" src="/resources/lib/layer/2.4/layer.js"></script>
 <script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
-<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script> <!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/resources/w2ui-1.5.rc1/w2ui-1.5.rc1.js"></script>
+<!--w2ui-->
 
 <!--请在下方写此页面业务相关的脚本-->
 <script type="text/javascript" src="/resources/lib/My97DatePicker/4.8/WdatePicker.js"></script>
 <script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
 <script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/validate-methods.js"></script>
 <script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+<script type="text/javascript" src="/resources/lib/webuploader/0.1.5/webuploader.min.js"></script>
 <script type="text/javascript">
-	myselfinfo();
 
-	function myselfinfo() {
+    $(function () {
+        $('.skin-minimal input').iCheck({
+            checkboxClass: 'icheckbox-blue',
+            radioClass: 'iradio-blue',
+            increaseArea: '20%'
+        });
+        $("#tab-system").Huitab({
+            index: 0
+        });
+    });
 
-		$.ajax({
-			type:"post",
-			url:"selectAdminById",
-			data:{
-				id:$.cookie("adminId")
+    /*绑定状态*/
+    bindState();
+    function bindState() {
+        $.ajax({
+            url: "/bindState",
+            type: "post",
+            data: {
+                id: $.cookie("adminId")
+            },
+            success: function (data) {
+                if (data == 1) {
+                    $("#login-wb").css("color", "red");
+                    $("#login-wb").html("{微博账号已绑定}")
+                }
+                if (data == 2) {
+                    $("#login-qq").css("color", "red");
+                    $("#login-qq").html("{QQ账号已绑定}")
+                }
+                if (data == 3) {
+                    $("#login-db").css("color", "red");
+                    $("#login-db").html("{豆瓣账号已绑定}")
+                }
+                if (data == 4) {
+                    $("#login-rr").css("color", "red");
+                    $("#login-rr").html("{人人账号已绑定}")
+                }
+                if (data == 5) {
+                    $("#login-git").css("color", "red");
+                    $("#login-git").html("{GitHub账号已绑定}")
+                }
+                if (data == 6) {
+                    $("#login-wx").css("color", "red");
+                    $("#login-wx").html("{微信账号已绑定}")
+                }
 
-			},
-			success:function (rusult) {
-				$("#login_name").html(rusult.login_name);
-				$("#login_name2").html(rusult.login_name);
-				$("#real_name").val(rusult.real_name);
-				$("#telephone").val(rusult.telephone);
-				$("#email").val(rusult.email);
-				$("#address").val(rusult.address);
-				if ("男".equals(rusult.gender)){
-					$("#sex-1").checked=true;
-				}else if ("女".equals(rusult.gender)){
-					$("#sex-2").checked=true;
-				}
 
-			},error: function(XmlHttpRequest, textStatus, errorThrown){
-				layer.msg('error!-P_Info',{icon:2,time:3000});
-			}
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('ERROR!', {icon: 2, time: 3000});
+            }
 
-		});
+        })
+    }
 
-	}
+    /*绑定*/
+    function bind(sel, num) {
+
+
+        w2popup.open({
+            width: 500,
+            height: 300,
+            title: '绑定账号',
+            body: '<div class="w2ui-centered" style="line-height: 1.8"><h2>' + sel + '</h2><br><br>' +
+            '     账号: <input id="bindNum" class="w2ui-input" style="margin-bottom: 5px"><br>' +
+            '</div>',
+            buttons: '<button class="w2ui-btn" onclick="binding(' + num + ')">Ok</button>' +
+            '<button class="w2ui-btn" onclick="w2popup.close()">Cancel</button>'
+        });
+
+    }
+    function binding(num) {
+        $.ajax({
+            url: "/bind",
+            type: "post",
+            data: {
+                admin_id: $.cookie("adminId"),
+                title_url: num + $("#bindNum").val()
+            },
+            success: function (data) {
+                if (data == 1) {
+                    w2popup.close();
+                    layer.msg('绑定成功!', {icon: 1, time: 3000});
+                }
+
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('ERROR!', {icon: 2, time: 3000});
+            }
+
+        })
+    }
+
+    /*回填表单*/
+    myselfinfo();
+    function myselfinfo() {
+
+        $.ajax({
+            type: "post",
+            url: "selectAdminById",
+            data: {
+                id: $.cookie("adminId")
+
+            },
+            success: function (rusult) {
+                $("#login_name").val(rusult.login_name);
+                $("#login_name2").val(rusult.login_name);
+                $("#real_name").val(rusult.real_name);
+                $("#telephone").val(rusult.telephone);
+                $("#email").val(rusult.email);
+                $("#address").val(rusult.address);
+                if (rusult.gender == '男') {
+                    $("#sex-1").attr("checked", true);
+                } else {
+                    $("#sex-2").attr("checked", true);
+                }
+
+            }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                layer.msg('error!-P_Info', {icon: 2, time: 3000});
+            }
+
+        });
+
+    }
+
+    /*提交表单-1*/
+    $("#form-article-add-1").validate({
+        rules: {
+            real_name: {
+                required: true
+            },
+            gender: {
+                required: true
+            },
+            telephone: {
+                required: true
+            },
+            email: {
+                required: true
+            },
+            address: {
+                required: true
+            }
+        },
+        onkeyup: false,
+        focusCleanup: true,
+        success: "valid",
+        submitHandler: function (form) {
+
+            $(form).ajaxSubmit({
+                type: 'post',
+                url: "ediAdmin",
+                success: function (data) {
+                    if (data == 1) {
+                        layer.msg('更新成功!', {icon: 1, time: 3000});
+                    }
+                },
+                error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    layer.msg('error-edi!', {icon: 2, time: 3000});
+                }
+            });
+            var index = parent.layer.getFrameIndex(window.name);
+            parent.$('.btn-refresh').click();
+            parent.layer.close(index);
+        }
+    });
+
+    /*提交表单-2*/
+    $("#form-article-add-2").validate({
+        rules: {
+            password: {
+                required: true,
+                minlength: 4,
+                maxlength: 16
+
+            },
+            repassword: {
+                required: true,
+                minlength: 4,
+                maxlength: 16
+            }
+        },
+        onkeyup: false,
+        focusCleanup: true,
+        success: "valid",
+        submitHandler: function (form) {
+            var pwd=$("#password").val();
+            var repwd=$("#repassword").val();
+            if (pwd == repwd) {
+
+                $(form).ajaxSubmit({
+                    type: 'post',
+                    url: "modifyPWD",
+                    success: function (data) {
+                        if (data == 1) {
+                            layer.msg('更新成功!', {icon: 1, time: 3000});
+                        }
+                    },
+                    error: function (XmlHttpRequest, textStatus, errorThrown) {
+                        layer.msg('error-pwd!', {icon: 2, time: 3000});
+                    }
+                });
+                var index = parent.layer.getFrameIndex(window.name);
+                parent.$('.btn-refresh').click();
+                parent.layer.close(index);
+            } else {
+                layer.msg('两次输入不一致!', {icon: 2, time: 3000});
+            }
+        }
+    });
+
+
+
 </script>
 <!--/请在上方写此页面业务相关的脚本-->
 </body>

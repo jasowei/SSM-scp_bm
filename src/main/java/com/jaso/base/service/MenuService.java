@@ -9,7 +9,7 @@ import java.util.List;
  * Created by dllo on 17/12/6.
  */
 public interface MenuService {
-    PageInfo<Menu> select_allmenu(Integer pageNum, Integer pageSize,String search);
+    PageInfo<Menu> select_allmenu(Integer pageNum, Integer pageSize);
 
     Menu select_menuById(Integer id);
 
@@ -35,6 +35,6 @@ public interface MenuService {
 
     List<Menu> findAllsMenu(Integer id);
 
-//    List<Menu> searchMenu(String search);
+    List<Menu> searchMenu(String search);
 
 }

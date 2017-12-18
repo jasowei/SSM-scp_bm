@@ -39,8 +39,8 @@
         <!--<form class="Huiform" target="_self">-->
         <input type="text" value="" class="input-text" style="width:250px" id="searchInput" name="search"
                data-toggle="popover" title="您可以这样搜搜看:"
-               data-content="管理  小区  权限  设置 ..." data-placement="bottom">
-        <button class="btn btn-success" onclick="showMenu(1,5)">
+               data-content="用户管理  管理  小区  权限  设置 ..." data-placement="bottom">
+        <button class="btn btn-success" onclick="searching()">
             <i class="Hui-iconfont">&#xe665;</i> 搜索
         </button>
         <!--</form>-->
@@ -101,35 +101,34 @@
 <script type="text/javascript" src="/resources/lib/datatables/1.10.0/jquery.dataTables.min.js"></script>
 
 <script type="text/javascript">
-//    /*搜索*/
-//    function searching() {
-//        if (($("#searchInput").val()).trim().equals("")) {
-//            showMenu(1, 5);
-//        } else {
-//            $.ajax({
-//                url: "searchMenu",
-//                type: "post",
-//                async: false,
-//                data: {
-//                    search: $("#searchInput").val()
-//                },
-//                success: function (result) {
-//                    $("#searchInput").val(result.search);
-//                    if (result.menuList.length() == 0) {
-//                        layer.msg('不瞒你说,并没有找到你想要的!', {icon: 0, time: 5000});
-//                    }
-//                    $("#tab").html("");
-//                    $("#page").html("");
-//                    $.each(result.menuList, function (i, menu) {
-//                        addNewTR(menu);
-//                    });
-//
-//                }, error: function (XmlHttpRequest, textStatus, errorThrown) {
-//                    layer.msg('error!', {icon: 2, time: 3000});
-//                }
-//            })
-//        }
-//    }
+    /*搜索*/
+    function searching() {
+        if ($("#searchInput").val().trim()=="") {
+            showMenu(1, 5);
+        } else {
+            $.ajax({
+                url: "searchMenu",
+                type: "post",
+                data: {
+                    search: $("#searchInput").val()
+                },
+                success: function (result) {
+                    $("#searchInput").val(result.search);
+                    if (result.menuList.length == 0) {
+                        layer.msg('不瞒你说,并没有找到你想要的!', {icon: 0, time: 5000});
+                    }
+                    $("#tab").html("");
+                    $("#page").html("");
+                    $.each(result.menuList, function (i, menu) {
+                        addNewTR(menu);
+                    });
+
+                }, error: function (XmlHttpRequest, textStatus, errorThrown) {
+                    layer.msg('error!', {icon: 2, time: 3000});
+                }
+            })
+        }
+    }
 
 
     /*默认:当前第一页,显示5条数据*/
@@ -138,11 +137,9 @@
         $.ajax({
             url: "allMenu",
             type: "post",
-            async: false,
             data: {
                 "pageNum": pageNum,
                 "pageSize": pageSize,
-                search: $("#searchInput").val()
             },
             success: function (result) {
                 if (result.size == 0) {
@@ -171,7 +168,6 @@
         $.ajax({
             url: "select_menuById",
             type: "post",
-            async: false,
             data: {
                 id: menu.parent_id
             },

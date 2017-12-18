@@ -12,12 +12,16 @@ import com.jaso.base.util.AjaxResult;
 import com.jaso.base.util.VerifyCode;
 import com.lanou.mail.Mail;
 import com.lanou.mail.MailUtils;
+import com.sun.deploy.net.HttpRequest;
+import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
@@ -25,6 +29,7 @@ import javax.mail.MessagingException;
 import javax.mail.Session;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.InetAddress;
@@ -302,7 +307,10 @@ public class AdminController {
     public AjaxResult getRole(int role_id) {
         ajaxResult = new AjaxResult<Role>();
 
+        System.out.println(role_id);
+
         Role role = roleService.select_RoleById(role_id);
+        System.out.println(role);
 
         if (role == null) {
             ajaxResult.setStatus(false);
@@ -350,6 +358,8 @@ public class AdminController {
     @RequestMapping("/roleAdd")
     public AjaxResult roleAdd(Role role, String permit) {
         ajaxResult = new AjaxResult<Role>();
+        System.out.println(role);
+        System.out.println(permit);
         Role role1 = roleService.select_RoleByNameNoPermit(role.getRole_name());
         if (role1 == null) {
             roleService.addRole(role, permit);
