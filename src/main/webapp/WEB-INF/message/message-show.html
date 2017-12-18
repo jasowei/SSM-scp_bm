@@ -51,7 +51,7 @@
         success:function (result) {
             addAdmin_id(result.login_name);
         }
-    })
+    });
 
     function addAdmin_id(obj) {
         $("#message").html("<h1>这是来自"+obj+"的消息</h1><br>"+"<h3>"+$.cookie("message")+"</h3>")
@@ -71,7 +71,7 @@
         }
         else {
             window.clearInterval(timer);
-            location.href = "message-complain";
+            location.href = "message-notice";
         }
     }
 

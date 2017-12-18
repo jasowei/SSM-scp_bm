@@ -42,6 +42,7 @@
                 <!--authc : 需要认证才可以访问-->
                  /loginAdmin = authc
                 /index = authc
+                /menu = authc
 
                 <!--退出-->
                 /logout = logout

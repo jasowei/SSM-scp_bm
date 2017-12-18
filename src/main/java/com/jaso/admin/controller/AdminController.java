@@ -16,6 +16,7 @@ import com.sun.deploy.net.HttpRequest;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.apache.shiro.crypto.hash.Md5Hash;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -354,6 +355,7 @@ public class AdminController {
     /**
      * 添加
      */
+    @RequiresRoles("超级管理员")
     @ResponseBody
     @RequestMapping("/roleAdd")
     public AjaxResult roleAdd(Role role, String permit) {
@@ -373,6 +375,7 @@ public class AdminController {
     /**
      * 删除角色
      */
+    @RequiresRoles("超级管理员")
     @ResponseBody
     @RequestMapping("/deleteRole")
     public AjaxResult deleteRole(int role_id) {
@@ -391,6 +394,7 @@ public class AdminController {
     /**
      * 批量删除
      */
+    @RequiresRoles("超级管理员")
     @ResponseBody
     @RequestMapping("/deleteMore")
     public AjaxResult deleteMore(String roleId) {
@@ -487,6 +491,7 @@ public class AdminController {
     /**
      * 用户添加
      */
+    @RequiresRoles("超级管理员")
     @ResponseBody
     @RequestMapping("/addAdmin")
     public AjaxResult addAdmin(Admin admin, int adminRole){
@@ -497,7 +502,7 @@ public class AdminController {
         Admin admin1 = adminService.select_adminByLoginName(admin.getLogin_name());
         Admin admin2 = adminService.select_adminByTel(admin.getTelephone());
         Admin admin3 = adminService.findByEmail(admin.getEmail());
-        if ((admin1 != null)||(admin2 != null)||(admin2 != null)){
+        if ((admin1 != null)||(admin2 != null)||(admin3 != null)){
             ajaxResult.setStatus(false);
             ajaxResult.setMessage("用户名或手机号或邮箱已被使用");
             return ajaxResult;

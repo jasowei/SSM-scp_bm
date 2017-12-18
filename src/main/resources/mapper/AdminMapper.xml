@@ -71,7 +71,7 @@
     <!--根据登录名查询-->
     <select id="select_adminByLoginName"
             parameterType="java.lang.String"
-            resultType="com.jaso.admin.bean.Admin">
+            resultMap="adminMapEx">
         SELECT
 
         <include refid="adminSql"/>,

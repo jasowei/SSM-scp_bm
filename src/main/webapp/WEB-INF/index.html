@@ -43,12 +43,13 @@
                     <li class="dropDown dropDown_hover">
                         <a href="#" class="dropDown_A" id="login_name">admin <i class="Hui-iconfont">&#xe6d5;</i></a>
                         <ul class="dropDown-menu menu radius box-shadow">
-                            <li><a href="javascript:;" onClick="myselfinfo()">个人信息</a></li>
+                            <li><a href="javascript:;" onClick="myselfinfo1()">个人信息</a></li>
                             <li><a href="/logout">切换账户</a></li>
                             <li><a href="/logout">退出</a></li>
                         </ul>
                     </li>
-                    <li id="Hui-msg"><a href="#" title="消息"><span class="badge badge-danger">1</span>
+                    <li id="Hui-msg"><a href="#" title="消息" onclick="showMessage()"><span class="badge badge-danger"
+                                                                                          id="message_account">1</span>
                         <i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a>
                     </li>
                     <li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" class="dropDown_A"
@@ -105,7 +106,7 @@
                 <ul>
                     <li><a data-href="codeing" data-title="投诉信息" href="javascript:void(0)">投诉信息</a></li>
                     <li><a data-href="codeing" data-title="业主报修" href="javascript:void(0)">业主报修</a></li>
-                    <li><a data-href="" data-title="公告" href="javascript:void(0)">公告</a></li>
+                    <li><a data-href="message-notice" data-title="公告" href="javascript:void(0)">公告</a></li>
                 </ul>
             </dd>
         </dl>
@@ -167,12 +168,11 @@
 
 <script type="text/javascript">
 
-    $(document).ready(function () {
 
 
         /*个人信息*/
 
-        function myselfinfo() {
+        function myselfinfo1() {
 
             $.ajax({
                 type: "post",
@@ -301,7 +301,29 @@
 //        }
 
 
-    })
+
+    function showMessage() {
+        var account = $("#message_account").html() - 1;
+        if (account > 0) {
+            $("#message_account").html(account);
+        } else {
+            $("#message_account").html("")
+        }
+
+        $.ajax({
+            type: "post",
+            url: "/consumer",
+            success: function (result) {
+                $.cookie("message", result.message);
+                $.cookie("message_owner", result.resultData.admin_id);
+                if (result.message == "没有新消息") {
+                    alert(result.message)
+                } else {
+                    layer_show("公告", "message-show.html", 800, 500);
+                }
+            }
+        })
+    }
 
 
 </script>

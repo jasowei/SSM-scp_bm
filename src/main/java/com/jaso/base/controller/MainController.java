@@ -318,11 +318,13 @@ public class MainController {
         return "admin/admin-role";
     }
 
+    @RequiresRoles("超级管理员")
     @RequestMapping("admin-role-edit")
     public String adminRoleEdit() {
         return "admin/admin-role-edit";
     }
 
+    @RequiresRoles("超级管理员")
     @RequestMapping("admin-role-add")
     public String adminRoleAdd() {
         return "admin/admin-role-add";
@@ -333,11 +335,13 @@ public class MainController {
         return "admin/admin-list";
     }
 
+    @RequiresRoles("超级管理员")
     @RequestMapping(value = "admin-add")
     public String adminAdd() {
         return "admin/admin-add";
     }
 
+    @RequiresRoles("超级管理员")
     @RequestMapping(value = "admin-edit")
     public String adminEdit() {
         return "admin/admin-edit";

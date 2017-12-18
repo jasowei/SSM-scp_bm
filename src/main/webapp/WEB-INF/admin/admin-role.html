@@ -119,7 +119,7 @@
                         $(obj).parents("tr").remove();
                         layer.msg('已删除!', {icon: 1, time: 1000});
                     }else {
-                        layer.msg('error! ' + result.message, {icon: 2, time: 3000});
+                        layer.msg('error! ' + "没有该权限", {icon: 2, time: 3000});
                     }
 
                 },
@@ -260,8 +260,10 @@
                 success: function (result) {
                     if (result.status) {
                         location.href = "admin-role"
-                    }else {
+                    }else if (result.status == false){
                         alert(result.message)
+                    }else {
+                        alert("没有该权限")
                     }
                 },
                 error: function () {

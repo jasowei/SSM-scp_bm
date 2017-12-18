@@ -22,7 +22,8 @@ public class MainTest {
 
     @Test
     public void test(){
-        adminMapper.test("admin");
+        System.out.println(adminMapper.select_adminByLoginName("admin"));
+
 
     }
 }
