@@ -2,6 +2,9 @@
 ### Java template
 # Compiled class file
 .idea
-.gitignore
 target/
+SSM-Project.iml
+.idea/
 
+
+src/main/java/com/jaso/.DS_Store
