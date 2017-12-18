@@ -11,6 +11,7 @@ import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
 import org.apache.lucene.store.FSDirectory;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.FileSystems;
 import java.util.List;
@@ -24,11 +25,15 @@ public class Index {
 
     public void index(MenuMapper menuMapper){
         IndexWriter indexWriter = null;
-
+        String classPath = this.getClass().getResource("/").getPath() + "/index";
+        File indexDir = new File(classPath);
+        if (!indexDir.exists() || !indexDir.isDirectory()){
+            indexDir.mkdirs();
+        }
         try {
             //创建索引的目录对象
             FSDirectory directory =
-                    FSDirectory.open(FileSystems.getDefault().getPath("/Users/dllo/Documents/TheFifthStage11.23/SSM-Project/index"));
+                    FSDirectory.open(FileSystems.getDefault().getPath(classPath));
 
             //创建分词器
 //            Analyzer analyzer = new StandardAnalyzer();

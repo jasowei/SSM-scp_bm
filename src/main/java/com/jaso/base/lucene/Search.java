@@ -16,6 +16,7 @@ import org.apache.lucene.search.highlight.*;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
+import java.io.File;
 import java.io.IOException;
 import java.io.StringReader;
 import java.nio.file.FileSystems;
@@ -30,10 +31,12 @@ public class Search {
     //搜索类
     public List<String> search(String keyword){
 
+        String classPath = this.getClass().getResource("/").getPath() + "/index";
+
         try {
             //读取索引文件的内容
             Directory directory =
-                    FSDirectory.open(FileSystems.getDefault().getPath("/Users/dllo/Documents/TheFifthStage11.23/SSM-Project/index"));
+                    FSDirectory.open(FileSystems.getDefault().getPath(classPath));
 
             //创建索引文件的读对象
             DirectoryReader reader = DirectoryReader.open(directory);
