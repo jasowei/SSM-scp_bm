@@ -48,7 +48,7 @@
     <!--7. 配置mybatis中的mapper接口自动扫描-->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!--mapper接口代理对象所在的包-->
-        <property name="basePackage" value="com.jaso.admin.mapper,com.jaso.base.mapper,com.jaso.system.mapper"/>
+        <property name="basePackage" value="com.jaso.*.mapper"/>
         <!--定义sessionFactory, 引用上面配置的工厂对象-->
         <property name="sqlSessionFactoryBeanName" value="sessionFactory"/>
     </bean>

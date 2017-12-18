@@ -48,7 +48,8 @@
                             <li><a href="/logout">退出</a></li>
                         </ul>
                     </li>
-                    <li id="Hui-msg"><a href="#" title="消息"><span class="badge badge-danger">1</span>
+                    <li id="Hui-msg"><a title="消息" onclick="getMessage()"><span class="badge badge-danger"
+                                                                                id="noticeAccount">1</span>
                         <i class="Hui-iconfont" style="font-size:18px">&#xe68a;</i></a>
                     </li>
                     <li id="Hui-skin" class="dropDown right dropDown_hover"><a href="javascript:;" class="dropDown_A"
@@ -103,9 +104,9 @@
             <dt><i class="Hui-iconfont">&#xe620;</i> 物业服务<i class="Hui-iconfont menu_dropdown-arrow">&#xe6d5;</i></dt>
             <dd>
                 <ul>
-                    <li><a data-href="" data-title="投诉信息" href="javascript:void(0)">投诉信息</a></li>
-                    <li><a data-href="" data-title="业主报修" href="javascript:void(0)">业主报修</a></li>
-                    <li><a data-href="" data-title="公告" href="javascript:void(0)">公告</a></li>
+                    <li><a data-href="message-complain" data-title="投诉信息" href="javascript:void(0)">投诉信息</a></li>
+                    <li><a data-href="message-repairs" data-title="业主报修" href="javascript:void(0)">业主报修</a></li>
+                    <li><a data-href="message-notice" data-title="公告" href="javascript:void(0)">公告</a></li>
                 </ul>
             </dd>
         </dl>
@@ -232,7 +233,7 @@
     }
 
     /*菜单显示*/
-//    showMenu();
+    //    showMenu();
     function showMenu() {
         $.ajax({
             type: "post",
@@ -254,7 +255,7 @@
         var dt = $("<dt><i class='Hui-iconfont'>" + menu.icon + "</i>" + menu.menu_name + "" +
                 "<i class='Hui-iconfont menu_dropdown-arrow'>&#xe6d5;</i></dt>");
         var dd = $("<dd></dd>");
-        var ul=$("<ul></ul>");
+        var ul = $("<ul></ul>");
         //查子标签
         $.ajax({
             url: "/sonMenu",
@@ -277,6 +278,34 @@
 
         dl.append(dt).append(dd);
         $("#tab").append(dl);
+    }
+
+    function getMessage() {
+
+        $.ajax({
+            type: "post",
+            url: "/consumer",
+            success: function (result) {
+                if ($("#noticeAccount").html() > 0) {
+                    var account = $("#noticeAccount").html() - 1;
+                    $("#noticeAccount").html(account > 0 ? account : "")
+                } else {
+                    $("#noticeAccount").html("")
+                }
+
+                if (result.message == "没有新消息") {
+                    alert(result.message);
+                } else {
+                    $.cookie("message", result.message);
+                    $.cookie("message_owner", result.resultData.admin_id);
+                    layer_show("公告", "message-show.html", 800, 500);
+                }
+
+            },
+            error: function () {
+                layer.msg('error!', {icon: 2, time: 3000});
+            }
+        })
     }
 
 

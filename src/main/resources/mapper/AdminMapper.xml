@@ -71,7 +71,7 @@
     <!--根据登录名查询-->
     <select id="select_adminByLoginName"
             parameterType="java.lang.String"
-            resultMap="adminMapEx">
+            resultType="com.jaso.admin.bean.Admin">
         SELECT
 
         <include refid="adminSql"/>,
@@ -106,7 +106,7 @@
         AND admin_info.admin_id = admin_role.admin_id
         and admin_role.role_id = role_info.role_id
         and role_info.role_id = role_permit.role_id
-        AND role_permit.permit_id = permit_info.permit_id;
+        AND role_permit.permit_id = permit_info.permit_id
     </select>
 
 

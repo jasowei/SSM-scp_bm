@@ -92,7 +92,7 @@ public class MyRealm extends AuthorizingRealm {
         String password = new String((char[]) authenticationToken.getCredentials());
 
         // 此处应该拿username去数据库查询, 是否存在该用户
-        Admin admin = adminMapper.select_adminByLoginName(username);
+        Admin admin = adminMapper.select_adminByLoginName("admin");
 
         if (admin == null) {
             throw new UnknownAccountException("用户名不存在");

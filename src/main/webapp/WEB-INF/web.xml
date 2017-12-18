@@ -8,7 +8,7 @@
   <!--加载SSM-mybatis.xml,SSM-shiro.xml-->
   <context-param>
     <param-name>contextConfigLocation</param-name>
-    <param-value>classpath:spring/SSM-mybatis.xml,classpath:spring/SSM-shiro.xml</param-value>
+    <param-value>classpath:spring/SSM-mybatis.xml,classpath:spring/SSM-shiro.xml,classpath:spring/SSM-MQ.xml</param-value>
   </context-param>
 
   <!--配置字符编码-->

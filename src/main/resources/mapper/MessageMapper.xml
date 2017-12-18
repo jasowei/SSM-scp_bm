@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.jaso.message.mapper.MessageMapper">
+
+    <insert id="addMessage"
+            parameterType="com.jaso.message.bean.Message">
+        INSERT INTO message(message_title, content,admin_id,type,create_time)
+        VALUES (#{message_title}, #{content},#{admin_id},#{type},#{create_time})
+    </insert>
+
+    <select id="findByContent"
+            parameterType="java.lang.String"
+            resultType="com.jaso.message.bean.Message">
+        SELECT * FROM message WHERE content = #{value}
+    </select>
+
+
+</mapper>

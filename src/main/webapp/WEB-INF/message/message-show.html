@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="renderer" content="webkit|ie-comp|ie-stand">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport"
+          content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="/resources/lib/html5shiv.js"></script>
+    <script type="text/javascript" src="/resources/lib/respond.min.js"></script>
+    <![endif]-->
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui/css/H-ui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/H-ui.admin.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/lib/Hui-iconfont/1.0.8/iconfont.css"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/skin/default/skin.css" id="skin"/>
+    <link rel="stylesheet" type="text/css" href="/resources/static/h-ui.admin/css/style.css"/>
+    <!--[if IE 6]>
+    <script type="text/javascript" src="/resources/lib/DD_belatedPNG_0.0.8a-min.js"></script>
+    <script>DD_belatedPNG.fix('*');</script>
+    <![endif]-->
+    <title>添加</title>
+    <meta name="keywords" content="H-ui.admin v3.1,H-ui网站后台模版,后台模版下载,后台管理系统模版,HTML后台模版下载">
+    <meta name="description" content="H-ui.admin v3.1，是一款由国人开发的轻量级扁平化网站后台模板，完全免费开源的网站后台管理系统模版，适合中小型CMS后台系统。">
+</head>
+<body>
+
+<div id="message" class="text-c"></div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/resources/jquery-3.2.1.min.js"></script>
+<script type="text/javascript" src="/resources/lib/layer/2.4/layer.js"></script>
+<script type="text/javascript" src="/resources/static/h-ui/js/H-ui.min.js"></script>
+<script type="text/javascript" src="/resources/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!--/_footer 作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/jquery.validate.js"></script>
+<script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/validate-methods.js"></script>
+<script type="text/javascript" src="/resources/lib/jquery.validation/1.14.0/messages_zh.js"></script>
+
+<script type="text/javascript">
+
+    $.ajax({
+        type:"post",
+        url:"selectAdminById",
+        data:{
+            id:$.cookie("message_owner")
+        },
+        success:function (result) {
+            addAdmin_id(result.login_name);
+        }
+    })
+
+    function addAdmin_id(obj) {
+        $("#message").html("<h1>这是来自"+obj+"的消息</h1><br>"+"<h3>"+$.cookie("message")+"</h3>")
+    }
+
+
+
+    //启动跳转的定时器
+    var timer;
+    function startTimes() {
+        timer = window.setInterval(showSecondes, 1000);
+    }
+    var i = 4;
+    function showSecondes() {
+        if (i > 0) {
+            i--;
+        }
+        else {
+            window.clearInterval(timer);
+            location.href = "message-complain";
+        }
+    }
+
+
+
+</script>
+</body>
+</html>
